@@ -5,7 +5,9 @@ import App from './components/App.js';
 class Home extends React.Component{
 
     render(){   
-        return();
+        return(
+    
+        );
     }
 }
 
