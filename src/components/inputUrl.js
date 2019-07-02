@@ -9,7 +9,7 @@ class InputQuery extends React.Component{
                     <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        Method
                    </button>
-                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a className="dropdown-item" href="#">GET</a>
                         <a className="dropdown-item" href="#">POST</a>
                         <a className="dropdown-item" href="#">PUT</a>
