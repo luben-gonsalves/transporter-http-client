@@ -2,11 +2,11 @@ import {createStore} from 'redux';
 
 let myReducer= function(state, action){
     let newState = {
-        name:""
+       // name:""
     }
-    if(action.type == "TEST"){
-        newState.name = "jaylal"
-    }
+    // if(action.type == "TEST"){
+    //     newState.name = "jaylal"
+    // }
 
     
     return newState;
@@ -18,7 +18,10 @@ myStore.subscribe(function(){
     console.log(myStore.getState());
 })
 
-action.dispatch({
-    type:"TEST"
-})
+// action.dispatch({
+//     type:"TEST"
+// })
 
+
+
+export {myStore};
