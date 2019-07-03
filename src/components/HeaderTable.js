@@ -30,6 +30,8 @@ class HeaderTable extends React.Component{
       </tr>
     </tbody>
   </table>
+  
+  
             </div>
         );
     }
