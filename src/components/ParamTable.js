@@ -1,23 +1,9 @@
 import React from 'react';
 
-class BodyTable extends React.Component{
+class ParamTable extends React.Component{
     render(){
         return(
             <div className="container">
-
-  <ul className="nav nav-pills">
-    <button className=" btn btn-secondary" data-toggle="pill" href="#none">None</button>&nbsp;
-    <button className=" btn btn-secondary" data-toggle="pill" href="#form-data">form-data</button>&nbsp;
-    <button className=" btn btn-secondary" data-toggle="pill" href="#raw">raw</button>&nbsp;
-    <button className=" btn btn-secondary" data-toggle="pill" href="#binary">Binary</button>&nbsp;
-  </ul>
-  <hr></hr>
-  <div className="tab-content">
-    <div id="none" className="tab-pane fade in active">
-      
-    </div>
-    <div id="form-data" className="tab-pane fade">
-    <div className="container">
                 <div className="row">
                     <div className="col-md-8">
             <table class="table table-borderless">
@@ -50,18 +36,9 @@ class BodyTable extends React.Component{
           </div>
           </div>
           </div>
-    </div>
-    <div id="raw" className="tab-pane fade">
-      
-    </div>
-    <div id="binary" className="tab-pane fade">
-      <button className="btn btn-primary" type="file">Upload file</button>
-    </div>
-  </div>
-</div>
         );
     }
 }
 
 
-export default BodyTable;
+export default ParamTable;

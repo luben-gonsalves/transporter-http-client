@@ -1,44 +1,47 @@
 import React from 'react';
 import {InputQuery} from './inputUrl';
-import ParamsTable from './HeaderTable';
+import ParamTable from './ParamTable';
 import HeaderTable from './HeaderTable';
+import Authentication from './authentication';
+import BodyTable from './BodyTable';
+import Preview from './preview';
+
 
 class Params extends React.Component{
     constructor(props){
         super(props);
-        this.state={
-            isParams:false,
-            isAuth:false,
-            isHeader:false,
-            isBody:false
-        }
-        this.params =this.params.bind(this);
-        this.Header =this.Header.bind(this);
         
-    }
-    params =function(){
-        this.setState({
-            isParams:true,
-            isHeader:false
-        })
-    }
-    Header =function(){
-        this.setState({
-            isHeader:true,
-            isParams:false
-        })
     }
     render(){
         return(
-            <div>
-            <button type="button" onClick={this.params} className="btn btn-secondary params">Params</button>&nbsp;
-            <button type="button" onClick={this.auth} className="btn btn-secondary">Authorization</button>&nbsp;
-            <button type="button" onClick={this.Header} className="btn btn-secondary">Header</button>&nbsp;
-            <button type="button" className="btn btn-secondary">Body</button>&nbsp;
-            <hr></hr>
-            <div>{this.state.isParams===true ? <ParamsTable /> :''}</div>
-            
-            </div>
+            <div className="container">
+
+  <ul className="nav nav-tabs nav-justified ">
+    <button className=" btn btn-secondary" data-toggle="tab" href="#params">params</button>&nbsp;
+    <button className=" btn btn-secondary" data-toggle="tab" href="#Authentication">Authentication</button>&nbsp;
+    <button className=" btn btn-secondary" data-toggle="tab" href="#Header">Header</button>&nbsp;
+    <button className=" btn btn-secondary" data-toggle="tab" href="#Body">Body</button>&nbsp;
+    &nbsp;&nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Preview 
+            </button>
+  </ul>
+  <Preview />
+  <div className="tab-content">
+    <div id="params" className="tab-pane fade in active">
+      <ParamTable />
+    </div>
+    <div id="Authentication" className="tab-pane fade">
+    <Authentication />
+    </div>
+    <div id="Header" className="tab-pane fade">
+      <HeaderTable />
+    </div>
+    <div id="Body" className="tab-pane fade">
+      <p></p>
+      <BodyTable />
+    </div>
+  </div>
+</div>
         );
     }
 }
