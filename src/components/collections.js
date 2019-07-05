@@ -1,61 +1,81 @@
 import React from "react";
 import Collection from "./collection";
+import { stateMapper } from "../store/store";
+import { connect } from "react-redux";
 
-var data = [
-  [
-    {
-      collectionName: "collection 1",
-      requests: [
-        {
-          requestName: "GET",
-          url: "https://"
-        },
-        {
-          requestName: "POST",
-          url: "https://"
-        },
-        {
-          requestName: "PUT",
-          url: "https://"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      collectionName: "collection 2",
-      requests: [
-        {
-          requestName: "GET",
-          url: "https://"
-        },
-        {
-          requestName: "POST",
-          url: "https://"
-        },
-        {
-          requestName: "PUT",
-          url: "https://"
-        }
-      ]
-    }
-  ]
-];
+// const data = [
+//   [
+//     {
+//       collectionName: "collection 1",
+//       requests: [
+//         {
+//           requestName: "GET",
+//           url: "https://"
+//         },
+//         {
+//           requestName: "POST",
+//           url: "https://"
+//         },
+//         {
+//           requestName: "PUT",
+//           url: "https://"
+//         }
+//       ]
+//     }
+//   ],
+//   [
+//     {
+//       collectionName: "collection 2",
+//       requests: [
+//         {
+//           requestName: "GET",
+//           url: "https://"
+//         },
+//         {
+//           requestName: "POST",
+//           url: "https://"
+//         },
+//         {
+//           requestName: "PUT",
+//           url: "https://"
+//         }
+//       ]
+//     }
+//   ]
+// ];
 
-class Collections extends React.Component {
+class CollectionsComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      collectionName: "",
+      description: ""
+    };
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.save = this.save.bind(this);
   }
-  handleClick() {}
 
   showData() {
-    return data.map(a => {
+    return this.props.collection.map((a, i) => {
       return (
         <div>
-          <Collection collectionData={a} />
+          <Collection collectionData={a} index={i} key={i} />
         </div>
       );
+    });
+  }
+
+  onChangeHandler(event) {
+    let name = event.target.name;
+    this.setState({
+      [name]: event.target.value
+    });
+  }
+
+  save() {
+    this.props.dispatch({
+      type: "CREATE_COLLECTION",
+      collectionData: this.state
     });
   }
 
@@ -67,51 +87,64 @@ class Collections extends React.Component {
             <h4>collections</h4>
             <button
               type="button"
-              class="btn btn-link"
+              className="btn btn-link"
               data-toggle="modal"
               data-target="#exampleModalLong"
             >
               new collection
             </button>
-
             <div
-              class="modal fade"
+              className="modal fade"
               id="exampleModalLong"
-              tabindex="-1"
+              tabIndex="-1"
               role="dialog"
               aria-labelledby="exampleModalLongTitle"
               aria-hidden="true"
             >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLongTitle">
                       New Collection
                     </h5>
                     <button
                       type="button"
-                      class="close"
+                      className="close"
                       data-dismiss="modal"
                       aria-label="Close"
                     >
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">
+                  <div className="modal-body">
                     Collection Name
-                    <input type="text" class="form-control" />
+                    <input
+                      type="text"
+                      name="collectionName"
+                      className="form-control"
+                      onChange={this.onChangeHandler}
+                    />
                     Description
-                    <input type="text" class="form-control" />
+                    <input
+                      type="text"
+                      name="description"
+                      className="form-control"
+                      onChange={this.onChangeHandler}
+                    />
                   </div>
-                  <div class="modal-footer">
+                  <div className="modal-footer">
                     <button
                       type="button"
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       data-dismiss="modal"
                     >
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={this.save}
+                    >
                       Save changes
                     </button>
                   </div>
@@ -125,5 +158,5 @@ class Collections extends React.Component {
     );
   }
 }
-
+let Collections = connect(stateMapper)(CollectionsComponent);
 export default Collections;
