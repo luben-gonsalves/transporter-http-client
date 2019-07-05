@@ -1,14 +1,18 @@
 import React from "react";
 import { InputQuery } from "./inputUrl";
-import Params from './parameter';
+import Params from "./parameter";
 import Collection from "./collections";
+import { Provider } from "react-redux";
+import { myStore } from "../store/store.js";
 
 class App extends React.Component {
   render() {
     return (
-      <Collection />
-      <Params />
-      )
+      <Provider store={myStore}>
+        <Collection />;
+        <Params />
+      </Provider>
+    );
   }
 }
 

@@ -1,27 +1,19 @@
-import {createStore} from 'redux';
+import { createStore } from "redux";
+import { combineReducers } from "redux";
+import collectionReducer from "./reducers/collectionReducer";
 
-let myReducer= function(state, action){
-    let newState = {
-       // name:""
-    }
-    // if(action.type == "TEST"){
-    //     newState.name = "jaylal"
-    // }
-
-    
-    return newState;
-}
+let myReducer = combineReducers({
+  collection: collectionReducer,
+});
 
 let myStore = createStore(myReducer);
 
-myStore.subscribe(function(){
-    console.log(myStore.getState());
-})
+myStore.subscribe(function() {
+  console.log(myStore.getState());
+});
 
-// action.dispatch({
-//     type:"TEST"
-// })
+function stateMapper(state) {
+  return state;
+}
 
-
-
-export {myStore};
+export { myStore, stateMapper };
