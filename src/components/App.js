@@ -10,6 +10,7 @@ class App extends React.Component {
     return (
       <Provider store={myStore}>
         <Collection />;
+        <InputQuery />
         <Params />
       </Provider>
     );
