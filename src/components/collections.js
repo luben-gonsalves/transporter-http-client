@@ -59,7 +59,14 @@ class CollectionsComponent extends React.Component {
     return this.props.collection.map((a, i) => {
       return (
         <div>
-          <Collection collectionData={a} index={i} key={i} />
+          <Collection
+            collectionData={a}
+            index={i}
+            key={i}
+            editCollection={this.editCollection}
+          >
+            {a.collectionName}
+          </Collection>
         </div>
       );
     });

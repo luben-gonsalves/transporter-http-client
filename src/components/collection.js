@@ -149,7 +149,8 @@ class CollectionComponent extends React.Component {
             className="btn btn-info"
             onClick={this.handleButton}
           >
-            {this.props.collectionData.collectionName}
+            {/* {this.props.collectionData.collectionName} */}
+            {this.props.children}
           </button>
           <button
             type="button"
@@ -161,9 +162,9 @@ class CollectionComponent extends React.Component {
           <div className="dropdown-menu dropdown-menu-lg-right">
             <a
               className="dropdown-item"
-              href="#exampleModal"
+              href={"#a0" + this.props.index}
               data-toggle="modal"
-              data-target="#exampleModal"
+              data-target={"#a0" + this.props.index}
             >
               edit
             </a>
@@ -178,16 +179,16 @@ class CollectionComponent extends React.Component {
         </div>
         <div
           className="modal fade"
-          id="exampleModal"
+          id={"a0" + this.props.index}
           tabIndex="-1"
           role="dialog"
-          aria-labelledby="exampleModalLabel"
+          aria-labelledby={"a0L" + this.props.index}
           aria-hidden="true"
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
+                <h5 className="modal-title" id={"a0L" + this.props.index}>
                   EDIT COLLECTION
                 </h5>
                 <button
