@@ -3,6 +3,10 @@ function inputQueryReducer(inputQuery="" , action){
       inputQuery=action.query;
       return inputQuery;
   }
+  if(action.type==="UPDATE_PARAMS"){
+    inputQuery = inputQuery + action.parameter;
+    return inputQuery;
+  }
   return inputQuery;
 }
 

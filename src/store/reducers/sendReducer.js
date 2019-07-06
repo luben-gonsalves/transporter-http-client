@@ -1,4 +1,4 @@
-function sendReducer(send ,action){
+function sendReducer(send="" ,action){
     if(action.type ==="SEND"){
         send = action.send;
         return send;

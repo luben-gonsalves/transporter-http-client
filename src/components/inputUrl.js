@@ -1,5 +1,5 @@
 import React from 'react';
-import { stateMapper } from "../store/store";
+ import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 
 class InputQueryComponent extends React.Component{
@@ -8,10 +8,10 @@ class InputQueryComponent extends React.Component{
 
         this.state={
             query:"",
-            get:false,
-            post:false,
-            put:false,
-            delete:false,
+            get:"",
+            post:"",
+            put:"",
+            delete:"",
             send:false
         }
         this.InputQueryFunction=this.InputQueryFunction.bind(this);
@@ -34,10 +34,7 @@ class InputQueryComponent extends React.Component{
     }
     getFunction(){
         this.setState({
-            get:true,
-            post:false,
-            put:false,
-            delete:false
+            get:"GET"
         })
    this.props.dispatch({
             type:"GET",
@@ -47,10 +44,7 @@ class InputQueryComponent extends React.Component{
         
     postFunction(){
         this.setState({
-            get:false,
-            post:true,
-            put:false,
-            delete:false
+            post:"POST",
         })
         this.props.dispatch({
             type:"POST",
@@ -60,10 +54,7 @@ class InputQueryComponent extends React.Component{
     }
     putFunction(){
         this.setState({
-            get:false,
-            post:false,
-            put:true,
-            delete:false
+            put:"PUT"
         })
         this.props.dispatch({
             type:"PUT",
@@ -72,10 +63,7 @@ class InputQueryComponent extends React.Component{
     }
     deleteFunction(){
         this.setState({
-            get:false,
-            post:false,
-            put:false,
-            delete:true
+            delete:"DELETE"
         })
         this.props.dispatch({
             type:"DELETE",
@@ -95,6 +83,7 @@ class InputQueryComponent extends React.Component{
             type:"SEND",
             send:this.state.send
         })
+        
     }
 
     render(){
