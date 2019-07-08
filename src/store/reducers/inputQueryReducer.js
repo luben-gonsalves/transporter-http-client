@@ -1,11 +1,12 @@
 function inputQueryReducer(inputQuery="" , action){
   if(action.type ==="INPUT_QUERY"){
-      inputQuery=action.query;
-      return inputQuery;
+    let state = inputQuery.slice();
+      state=action.query;
+      return state;
   }
-  if(action.type==="UPDATE_PARAMS"){
-    inputQuery = inputQuery + action.parameter;
-    return inputQuery;
+  if(action.type==="UPDATE_PARAM"){
+    let state = inputQuery.slice();
+    return state + action.parameter;
   }
   return inputQuery;
 }

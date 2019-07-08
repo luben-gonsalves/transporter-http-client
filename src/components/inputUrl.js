@@ -8,17 +8,11 @@ class InputQueryComponent extends React.Component{
 
         this.state={
             query:"",
-            get:"",
-            post:"",
-            put:"",
-            delete:"",
+            Method:"GET",
             send:false
         }
         this.InputQueryFunction=this.InputQueryFunction.bind(this);
-        this.getFunction =this.getFunction.bind(this);
-        this.postFunction =this.postFunction.bind(this);
-        this.putFunction =this.putFunction.bind(this);
-        this.deleteFunction =this.deleteFunction.bind(this);
+        this.handleMethod= this.handleMethod.bind(this);
         this.sendFunction =this.sendFunction.bind(this);
     }
 
@@ -32,42 +26,9 @@ class InputQueryComponent extends React.Component{
           query:this.state.query
       })
     }
-    getFunction(){
+    handleMethod(name){
         this.setState({
-            get:"GET"
-        })
-   this.props.dispatch({
-            type:"GET",
-            get:this.state.get
-        })
-    }
-        
-    postFunction(){
-        this.setState({
-            post:"POST",
-        })
-        this.props.dispatch({
-            type:"POST",
-            post:this.state.post
-        })
-
-    }
-    putFunction(){
-        this.setState({
-            put:"PUT"
-        })
-        this.props.dispatch({
-            type:"PUT",
-            put:this.state.put
-        })
-    }
-    deleteFunction(){
-        this.setState({
-            delete:"DELETE"
-        })
-        this.props.dispatch({
-            type:"DELETE",
-            delete:this.state.delete
+            Method:name
         })
     }
     
@@ -79,11 +40,18 @@ class InputQueryComponent extends React.Component{
                 send:true
             })
         } 
+        
+    }
+
+    MethodCall(){
         this.props.dispatch({
             type:"SEND",
             send:this.state.send
+        });
+        this.props.dispatch({
+            type:"METHOD",
+            Method:this.state.Method
         })
-        
     }
 
     render(){
@@ -92,18 +60,19 @@ class InputQueryComponent extends React.Component{
                <div className="input-group-prepend">
                <div className="dropdown">
                     <button  className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Method
+                       {this.state.Method}
                    </button>
                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a onClick={this.getFunction} className="dropdown-item" href="#">GET</a>
-                        <a onClick={this.postFunction} className="dropdown-item" href="#">POST</a>
-                        <a onClick={this.putFunction} className="dropdown-item" href="#">PUT</a>
-                        <a onClick={this.deleteFunction} className="dropdown-item" href="#">DELETE</a>
+                        <a onClick={this.handleMethod.bind(this,"GET")} className="dropdown-item" href="#">GET</a>
+                        <a onClick={this.handleMethod.bind(this,"POST")} className="dropdown-item" href="#">POST</a>
+                        <a onClick={this.handleMethod.bind(this,"PUT")} className="dropdown-item" href="#">PUT</a>
+                        <a onClick={this.handleMethod.bind(this,"DELETE")} className="dropdown-item" href="#">DELETE</a>
                    </div>
                </div>
                </div>
                 <input onChange={this.InputQueryFunction} type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" />
                 <button onClick={this.sendFunction} type="button" className="btn btn-success">SEND</button>
+                {this.MethodCall()}
             </div>
         );
     }

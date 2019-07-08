@@ -1,7 +1,7 @@
 function sendReducer(send="" ,action){
     if(action.type ==="SEND"){
-        send = action.send;
-        return send;
+        let state = action.send;
+        return state;
     }
     return send;
 }

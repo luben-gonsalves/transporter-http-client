@@ -11,7 +11,7 @@ class ParamTableComponent extends React.Component{
       key1:"",
       value1:"",
       description1:"",
-      parameter:""
+      parameter:"",
     }
     this.checkBoxHandle =this.checkBoxHandle.bind(this);
     this.key1=this.key1.bind(this);
@@ -32,31 +32,42 @@ class ParamTableComponent extends React.Component{
 
   description1(event){
     this.setState({
-      description1:event.target.vale
+      description1:event.target.value
     })
   }
-  checkBoxHandle(){
-    this.setState({
-      checkbox1:true
-    })
-    if(this.state.checkbox1 ===true){
-      this.setState({
-        parameter:"&" + this.state.key1 + "=" + this.state.value1
-      })
-
-      this.props.dispatch({
+  checkBoxHandle(e){
+    var check= e.target.checked;
+    if(check){
+    this.props.dispatch({
         type:"UPDATE_PARAM",
-        parameter:this.state.parameter
+        parameter:this.state.key1 + "="+ this.state.value1 + "&"
       })
-   }
+      this.setState({
+        checkbox1:true
+      })
+    }
+       else {
+      this.setState({
+        key1:"",
+        value1:""
+      })
+    }
   }
     render(){
-    
+      let Table="";
+      if(this.state.checkbox1){
+       Table =<tr>
+       <td><input onClick={this.checkBoxHandle} type="checkbox"/></td>
+       <td><input onChange={this.key1} type="text"/></td>
+       <td><input onChange={this.value1} type="text"/></td>
+       <td><input onChange={this.description1} type="text"/></td>
+     </tr>
+     }
         return(
             <div className="container">
                 <div className="row">
                     <div className="col-md-8">
-            <table class="table table-borderless">
+            <table class="table table-border">
             <thead>
               <tr>
                 <th></th>
@@ -67,24 +78,13 @@ class ParamTableComponent extends React.Component{
             </thead>
             <tbody>
               <tr>
-                <td><input onClick={this.checkBoxHandle} type="checkbox" /></td>
-                <td><input onChange={this.key1} type="text" className="form-control" /></td>
-                <td><input onChange={this.value1} type="text" className="form-control" /></td>
-                <td><input onChange={this.description1} type="text" className="form-control" /></td>
+                <td><input onClick={this.checkBoxHandle} type="checkbox"/></td>
+                <td><input onChange={this.key1} type="text"/></td>
+                <td><input onChange={this.value1} type="text"/></td>
+                <td><input onChange={this.description1} type="text"/></td>
               </tr>
-              <tr>
-              <td><input type="checkbox" /></td>
-              <td><input type="text" className="form-control" /></td>
-                <td><input type="text" className="form-control" /></td>
-                <td><input type="text" className="form-control" /></td>
-              </tr>
-              <tr>
-              <td><input type="checkbox" /></td>
-              <td><input type="text" className="form-control" /></td>
-                <td><input type="text" className="form-control" /></td>
-                <td><input type="text" className="form-control" /></td>
-              </tr>
-              
+              {Table}
+              {this.checkBox(false)}
             </tbody>
           </table>
           </div>
