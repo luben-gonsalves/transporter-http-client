@@ -11,7 +11,7 @@ class CollectionComponent extends React.Component {
       collectionName: "",
       description: ""
     };
-
+    this.modal = React.createRef();
     this.handleButton = this.handleButton.bind(this);
     this.removeCollection = this.removeCollection.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -36,6 +36,8 @@ class CollectionComponent extends React.Component {
   }
 
   editCollection() {
+    let $ = window.$;
+    let modal = this.modal.current;
     const { collectionName, description } = this.state;
 
     var data = {
@@ -48,6 +50,7 @@ class CollectionComponent extends React.Component {
       type: "EDIT_COLLECTION",
       editData: data
     });
+    $(modal).modal("hide");
   }
 
   onChangeHandler(event) {
@@ -119,6 +122,7 @@ class CollectionComponent extends React.Component {
           role="dialog"
           aria-labelledby={"a0L" + this.props.index}
           aria-hidden="true"
+          ref={this.modal}
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">

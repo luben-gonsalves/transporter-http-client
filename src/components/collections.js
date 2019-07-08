@@ -10,6 +10,7 @@ class CollectionsComponent extends React.Component {
       collectionName: "",
       description: ""
     };
+    this.modal = React.createRef();
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.save = this.save.bind(this);
   }
@@ -39,10 +40,13 @@ class CollectionsComponent extends React.Component {
   }
 
   save() {
+    let $ = window.$;
+    let modal = this.modal.current;
     this.props.dispatch({
       type: "CREATE_COLLECTION",
       collectionData: this.state
     });
+    $(modal).modal("hide");
   }
 
   render() {
@@ -66,6 +70,7 @@ class CollectionsComponent extends React.Component {
               role="dialog"
               aria-labelledby="exampleModalLongTitle"
               aria-hidden="true"
+              ref={this.modal}
             >
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
