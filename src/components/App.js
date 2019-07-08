@@ -9,8 +9,17 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={myStore}>
-        <Collection />;
-        <Params />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+              <Collection />
+            </div>
+            <div className="col-md-9">
+              <InputQuery />
+              <Params />
+            </div>
+          </div>
+        </div>
       </Provider>
     );
   }

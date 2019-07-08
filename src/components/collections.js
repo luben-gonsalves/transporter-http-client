@@ -3,47 +3,6 @@ import Collection from "./collection";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 
-// const data = [
-//   [
-//     {
-//       collectionName: "collection 1",
-//       requests: [
-//         {
-//           requestName: "GET",
-//           url: "https://"
-//         },
-//         {
-//           requestName: "POST",
-//           url: "https://"
-//         },
-//         {
-//           requestName: "PUT",
-//           url: "https://"
-//         }
-//       ]
-//     }
-//   ],
-//   [
-//     {
-//       collectionName: "collection 2",
-//       requests: [
-//         {
-//           requestName: "GET",
-//           url: "https://"
-//         },
-//         {
-//           requestName: "POST",
-//           url: "https://"
-//         },
-//         {
-//           requestName: "PUT",
-//           url: "https://"
-//         }
-//       ]
-//     }
-//   ]
-// ];
-
 class CollectionsComponent extends React.Component {
   constructor(props) {
     super(props);
