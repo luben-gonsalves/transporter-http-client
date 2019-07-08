@@ -46,23 +46,22 @@ class ParamTableComponent extends React.Component{
         checkbox1:true
       })
     }
-       else {
-      this.setState({
-        key1:"",
-        value1:""
-      })
-    }
   }
-    render(){
-      let Table="";
-      if(this.state.checkbox1){
+  Table(){
+  let Table="";
+      let i=0;
+      while( i <50){
        Table =<tr>
        <td><input onClick={this.checkBoxHandle} type="checkbox"/></td>
        <td><input onChange={this.key1} type="text"/></td>
        <td><input onChange={this.value1} type="text"/></td>
        <td><input onChange={this.description1} type="text"/></td>
      </tr>
-     }
+     i++;
+     return Table;
+    }
+  }
+    render(){
         return(
             <div className="container">
                 <div className="row">
@@ -83,7 +82,7 @@ class ParamTableComponent extends React.Component{
                 <td><input onChange={this.value1} type="text"/></td>
                 <td><input onChange={this.description1} type="text"/></td>
               </tr>
-              {Table}
+              {this.Table()}
             </tbody>
           </table>
           </div>
