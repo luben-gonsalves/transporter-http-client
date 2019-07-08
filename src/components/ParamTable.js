@@ -84,7 +84,6 @@ class ParamTableComponent extends React.Component{
                 <td><input onChange={this.description1} type="text"/></td>
               </tr>
               {Table}
-              {this.checkBox(false)}
             </tbody>
           </table>
           </div>
