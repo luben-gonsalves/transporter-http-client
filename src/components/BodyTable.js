@@ -100,5 +100,4 @@ class BodyTable extends React.Component {
     );
   }
 }
-
 export default BodyTable;
