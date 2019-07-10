@@ -182,7 +182,3 @@ class CollectionComponent extends React.Component {
 
 let Collection = connect(stateMapper)(CollectionComponent);
 export default Collection;
-
-
-
-this.extendtr();
