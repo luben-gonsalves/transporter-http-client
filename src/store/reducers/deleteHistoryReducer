@@ -1,0 +1,21 @@
+function historyReducer(
+  history = [
+    { historyName: "date 1", requests: [] },
+    { historyName: "date 2", requests: [] },
+    { historyName: "date 3", requests: [] }
+  ],
+  action
+) 
+
+  (action.type === "DELETE_HISTORY") {
+    let state = history.slice();
+    state.splice(action.index, 1);
+    return state;
+  }
+
+ 
+
+  return history;
+}
+
+export default deleteHistoryReducer;
