@@ -29,33 +29,33 @@ class BodyTableComponent extends React.Component {
     return (
       <div className="container">
         <ul className="nav nav-pills">
-          <button
-            className=" btn btn-secondary"
+          <li><a
+            className=" btn btn-primary"
             data-toggle="pill"
             href="#none"
           >
-            None
-          </button>
+            None</a>
+          </li>
           &nbsp;
-          <button
-            className=" btn btn-secondary"
+          <li><a 
+            className=" btn btn-primary"
             data-toggle="pill"
             href="#form-data"
           >
-            form-data
-          </button>
+            form-data</a>
+          </li>
           &nbsp;
-          <button className=" btn btn-secondary" data-toggle="pill" href="#raw">
-            raw
-          </button>
+          <li><a className=" btn btn-primary" data-toggle="pill" href="#raw">
+            raw </a>
+          </li>
           &nbsp;
-          <button
-            className=" btn btn-secondary"
+          <li><a
+            className=" btn btn-primary"
             data-toggle="pill"
             href="#binary"
           >
-            Binary
-          </button>
+            Binary</a>
+          </li>
           &nbsp;
         </ul>
         <hr />

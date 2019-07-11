@@ -16,16 +16,12 @@ class Params extends React.Component{
         return(
             <div className="container">
 
-  <ul className="nav nav-tabs nav-justified ">
-    <button className=" btn btn-secondary" data-toggle="tab" href="#params">params</button>&nbsp;
-    <button className=" btn btn-secondary" data-toggle="tab" href="#Authentication">Authentication</button>&nbsp;
-    <button className=" btn btn-secondary" data-toggle="tab" href="#Header">Header</button>&nbsp;
-    <button className=" btn btn-secondary" data-toggle="tab" href="#Body">Body</button>&nbsp;
-    &nbsp;&nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              Preview 
-            </button>
+  <ul className="nav nav-pills">
+    <li ><a className=" btn btn-primary"data-toggle="pill"  href="#params">params</a></li>&nbsp;
+    <li><a className=" btn btn-primary" data-toggle="pill" href="#Authentication">Authentication</a></li>&nbsp;
+    <li><a className=" btn btn-primary" data-toggle="pill" href="#Header">Header</a></li>&nbsp;
+    <li><a className=" btn btn-primary" data-toggle="pill" href="#Body">Body</a></li>&nbsp;
   </ul>
-  <Preview />
   <div className="tab-content">
     <div id="params" className="tab-pane fade in active">
       <ParamTable />
