@@ -1,131 +1,59 @@
 import React from "react";
-import { stateMapper } from "../store/store";
-import { connect } from "react-redux";
+import FormTable from "./formTable";
+import Raw from "./raw";
 
-class BodyTableComponent extends React.Component {
-    constructor(props){
-        super(props);
-
-        this.state={
-            JSONData :{}
-        }
-        this.JSONDataHandler=this.JSONDataHandler.bind(this);
-    }
-
-    JSONDataHandler(event){
-        this.setState({
-            JSONData:event.target.value
-        })
-    }
+class BodyTable extends React.Component {
   render() {
-    const userStr = JSON.stringify(this.state.JSONData);
-    JSON.parse(userStr, (key, value) => {
-        if(key!==""){
-      let str = key+ "="+value;
-     this.props.inputQuery= this.props.inputQuery + str + "&" ; 
-        }
-     });
-    console.log(this.props.inputQuery);
     return (
-      <div className="container">
-        <ul className="nav nav-pills">
-          <li><a
-            className=" btn btn-primary"
-            data-toggle="pill"
-            href="#none"
-          >
-            None</a>
+      <div>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="pills-form-data-tab"
+              data-toggle="pill"
+              href="#pills-form-data"
+              role="tab"
+              aria-controls="pills-form-data"
+              aria-selected="true"
+            >
+              form-data
+            </a>
           </li>
-          &nbsp;
-          <li><a 
-            className=" btn btn-primary"
-            data-toggle="pill"
-            href="#form-data"
-          >
-            form-data</a>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="pills-raw-tab"
+              data-toggle="pill"
+              href="#pills-raw"
+              role="tab"
+              aria-controls="pills-raw"
+              aria-selected="false"
+            >
+              raw
+            </a>
           </li>
-          &nbsp;
-          <li><a className=" btn btn-primary" data-toggle="pill" href="#raw">
-            raw </a>
-          </li>
-          &nbsp;
-          <li><a
-            className=" btn btn-primary"
-            data-toggle="pill"
-            href="#binary"
-          >
-            Binary</a>
-          </li>
-          &nbsp;
         </ul>
-        <hr />
-        <div className="tab-content">
-          <div id="none" className="tab-pane fade in active" />
-          <div id="form-data" className="tab-pane fade">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-8">
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Key</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                        <td>
-                          <input type="text" className="form-control" />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-form-data"
+            role="tabpanel"
+            aria-labelledby="pills-form-data-tab"
+          >
+            <FormTable />
           </div>
-          <div id="raw" className="tab-pane fade" >
-         <label>Enter JSON data</label>
-         <textarea onChange={this.JSONDataHandler} className="form-control" rows="5" id="comment"></textarea>
-      </div>
-          <div id="binary" className="tab-pane fade">
-            <button className="btn btn-primary" type="file">
-              Upload file
-            </button>
+          <div
+            class="tab-pane fade"
+            id="pills-raw"
+            role="tabpanel"
+            aria-labelledby="pills-raw-tab"
+          >
+            <Raw />
           </div>
         </div>
       </div>
     );
   }
 }
-let BodyTable = connect(stateMapper)(BodyTableComponent);
 export default BodyTable;

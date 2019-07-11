@@ -1,16 +1,17 @@
 import React from "react";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
+import { RequestOfCollection } from "./requestsOfCollection";
 
 class CollectionComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMore: false,
+      showMore: true,
       collectionName: "",
       description: ""
     };
-
+    this.modal = React.createRef();
     this.handleButton = this.handleButton.bind(this);
     this.removeCollection = this.removeCollection.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -29,12 +30,14 @@ class CollectionComponent extends React.Component {
 
   removeCollection() {
     this.props.dispatch({
-      type: "DELETE_COLLECTION",
-      index: this.props.index
+      type: "REMOVE_COLLECTION",
+      id: this.props.index
     });
   }
 
   editCollection() {
+    let $ = window.$;
+    let modal = this.modal.current;
     const { collectionName, description } = this.state;
 
     var data = {
@@ -47,6 +50,7 @@ class CollectionComponent extends React.Component {
       type: "EDIT_COLLECTION",
       editData: data
     });
+    $(modal).modal("hide");
   }
 
   onChangeHandler(event) {
@@ -59,94 +63,28 @@ class CollectionComponent extends React.Component {
 
   showCollectionData() {
     if (this.state.showMore && this.props.collectionData.requests) {
-      return this.props.collectionData[0].requests.map(a => {
+      return this.props.collectionData.requests.map((a, i) => {
         return (
           <div>
-            <p />
-            <div className="btn-group">
-              <button
-                type="button"
-                className="btn btn-light btn-sm dropdown-toggle"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                {a.requestName} {a.url}
-              </button>
-              <div className="dropdown-menu ">
-                <a
-                  className="dropdown-item"
-                  href="#requestModal"
-                  data-toggle="modal"
-                  data-target="#requestModal"
-                >
-                  Edit
-                </a>
-                <a className="dropdown-item" href="#">
-                  Delete
-                </a>
-              </div>
-            </div>
-            <div
-              className="modal fade"
-              id="requestModal"
-              tabIndex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">
-                      EDIT REQUEST
-                    </h5>
-                    <button
-                      type="button"
-                      className="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    Name
-                    <input type="text" className="form-control" />
-                    Description
-                    <input type="text" className="form-control" />
-                  </div>
-                  <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" className="btn btn-primary">
-                      Save changes
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p />
+            <RequestOfCollection
+              a={a}
+              key={i}
+              requestIndex={i}
+              collectionIndex={this.props.index}
+            />
           </div>
         );
       });
-    } else {
-      return <p> </p>;
     }
   }
 
   render() {
     return (
       <div>
-        <div className="btn-group">
+        <div className="btn-group pt-3">
           <button
             type="button"
-            className="btn btn-info"
+            className="btn btn-info "
             onClick={this.handleButton}
           >
             {/* {this.props.collectionData.collectionName} */}
@@ -184,6 +122,7 @@ class CollectionComponent extends React.Component {
           role="dialog"
           aria-labelledby={"a0L" + this.props.index}
           aria-hidden="true"
+          ref={this.modal}
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -235,7 +174,6 @@ class CollectionComponent extends React.Component {
             </div>
           </div>
         </div>
-        <br />
         {this.showCollectionData()}
       </div>
     );

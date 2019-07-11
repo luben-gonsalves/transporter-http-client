@@ -1,82 +1,103 @@
-import React from 'react';
- import { stateMapper } from "../store/store";
+import React from "react";
+import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
+import { AddRequest } from "./AddRequest";
 
-class InputQueryComponent extends React.Component{
-    constructor(props){
-        super(props);
+class InputQueryComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      method: "GET",
+      url: ""
+    };
+    this.handleSend = this.handleSend.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-        this.state={
-            query:"",
-            Method:"GET",
-            send:false
-        }
-        this.InputQueryFunction=this.InputQueryFunction.bind(this);
-        this.handleMethod= this.handleMethod.bind(this);
-        this.sendFunction =this.sendFunction.bind(this);
-    }
+  handleMethod(name) {
+    this.setState({
+      method: name
+    });
+  }
 
-    InputQueryFunction(event){
-      this.setState({
-          query:event.target.value
-      })
+  handleChange(event) {
+    var name = event.target.name;
+    this.setState({
+      [name]: event.target.value
+    });
+  }
 
-      this.props.dispatch({
-          type:"INPUT_QUERY",
-          query:this.state.query
-      })
-    }
-    handleMethod(name){
-        this.setState({
-            Method:name
-        })
-    }
-    
-    sendFunction(){
-        if(this.state.query===""){
-            alert("Enter the URL");
-        }else {
-            this.setState({
-                send:true
-            })
-        } 
-        
-    }
+  handleSend() {
+    console.log(this.state);
+  }
 
-    MethodCall(){
-        this.props.dispatch({
-            type:"SEND",
-            send:this.state.send
-        });
-        this.props.dispatch({
-            type:"METHOD",
-            Method:this.state.Method
-        })
-    }
-
-    render(){
-        return(
-            <div className="input-group mb-3 ">
-               <div className="input-group-prepend">
-               <div className="dropdown">
-                    <button  className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       {this.state.Method}
-                   </button>
-                   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a onClick={this.handleMethod.bind(this,"GET")} className="dropdown-item" href="#">GET</a>
-                        <a onClick={this.handleMethod.bind(this,"POST")} className="dropdown-item" href="#">POST</a>
-                        <a onClick={this.handleMethod.bind(this,"PUT")} className="dropdown-item" href="#">PUT</a>
-                        <a onClick={this.handleMethod.bind(this,"DELETE")} className="dropdown-item" href="#">DELETE</a>
-                   </div>
-               </div>
-               </div>
-                <input onChange={this.InputQueryFunction} type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" />
-                <button onClick={this.sendFunction} type="button" className="btn btn-success">SEND</button>
-                {this.MethodCall()}
+  render() {
+    return (
+      <div className="input-group mb-3 ">
+        <div className="input-group-prepend">
+          <div className="dropdown">
+            <button
+              className="btn btn-success dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {this.state.method}
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={this.handleMethod.bind(this, "GET")}
+              >
+                GET
+              </a>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={this.handleMethod.bind(this, "POST")}
+              >
+                POST
+              </a>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={this.handleMethod.bind(this, "PUT")}
+              >
+                PUT
+              </a>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={this.handleMethod.bind(this, "DELETE")}
+              >
+                DELETE
+              </a>
             </div>
-        );
-    }
+          </div>
+        </div>
+        <input
+          type="text"
+          className="form-control"
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          name="url"
+          onChange={this.handleChange}
+        />
+        <button
+          type="button"
+          className="btn btn-success"
+          onClick={this.handleSend}
+        >
+          SEND
+        </button>
+        <AddRequest requestData={this.state} stateData={this.state} />
+      </div>
+    );
+  }
 }
-let InputQuery = connect(stateMapper)(InputQueryComponent);
-export {InputQuery};
 
+let InputQuery = connect(stateMapper)(InputQueryComponent);
+export { InputQuery };
