@@ -9,14 +9,23 @@ function oneCollectionReducer(collection = {}, action) {
   if (action.type === "COLLECTION_CREATED") {
     return action.data;
   }
+
+  if (action.type === "EDIT_COLLECTION") {
+    createItem("collection", myStore, action.editData);
+  }
+
+  if (action.type === "COLLECTION_EDITED") {
+    return action.data;
+  }
+
+  if (action.type === "REMOVE_COLLECTION") {
+    createItem("collection", myStore, action.id);
+  }
+
+  if (action.type === "COLLECTION_REMOVED") {
+    return action.data;
+  }
   return collection;
 }
 
 export default oneCollectionReducer;
-
-
-// EDIT_COLLECTION
-// COLLECTION_EDITED
-
-// REMOVE_COLLECTION
-// COLLECTION_REMOVED

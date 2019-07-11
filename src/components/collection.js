@@ -30,8 +30,8 @@ class CollectionComponent extends React.Component {
 
   removeCollection() {
     this.props.dispatch({
-      type: "DELETE_COLLECTION",
-      index: this.props.index
+      type: "REMOVE_COLLECTION",
+      id: this.props.index
     });
   }
 

@@ -25,29 +25,32 @@ export function createItem(dataName, myStore, data) {
   });
 }
 
+export function editOneItem(dataName, myStore, data) {
+  var localData = localStorage.getItem(dataName);
+  localData = JSON.parse(localData);
+  for (var i = 0; i < localData.length; i++) {
+    if (localData[i].id === data.id) {
+      localData[i] = data;
+    }
+  }
+  localStorage.setItem(dataName, JSON.stringify(localData));
+  this.props.dispatch({
+    type: "COLLECTION_EDITED",
+    data: localData
+  });
+}
 
-
-
-// // createItem("collections", {name: "Youtube APIs", urls: [ {}, {}, ]});
-
-// export function editOneItem(dataName, data) {
-//   var localData = localStorage.getItem(dataName);
-//   localData = JSON.parse(localData);
-//   for (var i = 0; i < localData.length; i++) {
-//     if (localData[i].id === data.id) {
-//       localData[i] = data;
-//     }
-//   }
-//   localStorage.setItem(dataName, JSON.stringify(localData));
-// }
-
-// export function removeOneItem(dataName, id) {
-//   var localData = localStorage.getItem(dataName);
-//   localData = JSON.parse(localData);
-//   for (var i = 0; i < localData.length; i++) {
-//     if (localData[i].id === id) {
-//       localData.splice(i, 1);
-//     }
-//   }
-//   localStorage.setItem(dataName, JSON.stringify(localData));
-// }
+export function removeOneItem(dataName, myStore, id) {
+  var localData = localStorage.getItem(dataName);
+  localData = JSON.parse(localData);
+  for (var i = 0; i < localData.length; i++) {
+    if (localData[i].id === id) {
+      localData.splice(i, 1);
+    }
+  }
+  localStorage.setItem(dataName, JSON.stringify(localData));
+  myStore.dispatch({
+    type: "COLLECTION_REMOVED",
+    data: localData
+  });
+}
