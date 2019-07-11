@@ -27,7 +27,8 @@ class HistoryData extends React.Component {
             return this.props.hdata.requests.map(b => {
                 return (
                     <div>
-                        <button type="button" class="btn btn-danger">{b.requestName}</button>
+                        <button type="button" class="btn btn-secondary btn-sm">{b.requestName}</button>
+                        <br />
                         <br />
                     </div>
 
@@ -41,7 +42,7 @@ class HistoryData extends React.Component {
             <div >
                 <div class="btn-group">
 
-                    <button type="button" onClick={this.handleButton} class="btn btn-danger">{this.props.hdata.historyName}</button>
+                    <button type="button" onClick={this.handleButton} class="btn btn-secondary btn-sm">{this.props.hdata.historyName}</button>
 
                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Toggle Dropdown</span>

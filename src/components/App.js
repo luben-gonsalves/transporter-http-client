@@ -1,10 +1,29 @@
 import React from "react";
 import { InputQuery } from "./inputUrl";
-import History from "./histories";
+import Histories from "./histories.js";
+import Import from "./import";
+
+
 
 class App extends React.Component {
   render() {
-    return <History />;
+    return (
+      <div className="container">
+
+        <div className="row">
+
+          <div className="col-md-3">
+            <Histories />;
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    );
+
   }
 }
 
