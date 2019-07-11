@@ -94,6 +94,7 @@ class InputQueryComponent extends React.Component {
           SEND
         </button>
         <AddRequest requestData={this.state} stateData={this.state} />
+    
       </div>
     );
   }

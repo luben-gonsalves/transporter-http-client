@@ -10,18 +10,19 @@ class CollectionsComponent extends React.Component {
       collectionName: "",
       description: ""
     };
+    this.modal = React.createRef();
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.save = this.save.bind(this);
   }
 
   showData() {
-    return this.props.collection.map((a, i) => {
+    return this.props.collections.map((a, i) => {
       return (
         <div>
           <Collection
             collectionData={a}
             index={i}
-            key={i}
+            key={a.id}
             editCollection={this.editCollection}
           >
             {a.collectionName}
@@ -39,10 +40,17 @@ class CollectionsComponent extends React.Component {
   }
 
   save() {
+    let $ = window.$;
+    let modal = this.modal.current;
     this.props.dispatch({
       type: "CREATE_COLLECTION",
       collectionData: this.state
     });
+    this.setState({
+      collectionName: "",
+      description: ""
+    });
+    $(modal).modal("hide");
   }
 
   render() {
@@ -66,6 +74,7 @@ class CollectionsComponent extends React.Component {
               role="dialog"
               aria-labelledby="exampleModalLongTitle"
               aria-hidden="true"
+              ref={this.modal}
             >
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
@@ -86,6 +95,7 @@ class CollectionsComponent extends React.Component {
                     Collection Name
                     <input
                       type="text"
+                      value={this.state.collectionName}
                       name="collectionName"
                       className="form-control"
                       onChange={this.onChangeHandler}
@@ -93,6 +103,7 @@ class CollectionsComponent extends React.Component {
                     Description
                     <input
                       type="text"
+                      value={this.state.description}
                       name="description"
                       className="form-control"
                       onChange={this.onChangeHandler}
