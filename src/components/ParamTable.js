@@ -3,106 +3,109 @@ import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 
 class ParamTableComponent extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    rows: [
+      {
+        key: "",
+        value: "",
+        description: ""
+      }
+    ]
+  };
 
-    this.state = {
-      checkbox1: false,
-      key1: "",
-      value1: "",
-      description1: "",
-      parameter: ""
+  handleChange = idx => e => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    const rows = [...this.state.rows];
+    rows[idx][name] = value;
+    console.log(rows[idx]);
+    this.setState({
+      rows
+    });
+  };
+
+  handleAddRow = () => {
+    const item = {
+      key: "",
+      value: "",
+      description: ""
     };
-    this.checkBoxHandle = this.checkBoxHandle.bind(this);
-    this.key1 = this.key1.bind(this);
-    this.value1 = this.value1.bind(this);
-    this.description1 = this.description1.bind(this);
-  }
-  key1(event) {
     this.setState({
-      key1: event.target.value
+      rows: [...this.state.rows, item]
     });
-  }
+  };
 
-  value1(event) {
-    this.setState({
-      value1: event.target.value
-    });
-  }
+  handleRemoveSpecificRow = idx => () => {
+    const rows = [...this.state.rows];
+    rows.splice(idx, 1);
+    this.setState({ rows });
+  };
 
-  description1(event) {
-    this.setState({
-      description1: event.target.value
-    });
-  }
-  checkBoxHandle(e) {
-    var check = e.target.checked;
-    if (check) {
-      this.props.dispatch({
-        type: "UPDATE_PARAM",
-        parameter: this.state.key1 + "=" + this.state.value1 + "&"
-      });
-      this.setState({
-        checkbox1: true
-      });
-    }
-  }
-  Table() {
-    let Table = "";
-    let i = 0;
-    while (i < 50) {
-      Table = (
-        <tr>
-          <td>
-            <input onClick={this.checkBoxHandle} type="checkbox" />
-          </td>
-          <td>
-            <input onChange={this.key1} type="text" />
-          </td>
-          <td>
-            <input onChange={this.value1} type="text" />
-          </td>
-          <td>
-            <input onChange={this.description1} type="text" />
-          </td>
-        </tr>
-      );
-      i++;
-      return Table;
-    }
-  }
   render() {
+    console.log(this.state.rows);
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8">
-            <table className="table table-border">
-              <thead>
-                <tr>
-                  <th />
-                  <th scope="col">Key</th>
-                  <th scope="col">Value</th>
-                  <th scope="col">Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <input onClick={this.checkBoxHandle} type="checkbox" />
-                  </td>
-                  <td>
-                    <input onChange={this.key1} type="text" />
-                  </td>
-                  <td>
-                    <input onChange={this.value1} type="text" />
-                  </td>
-                  <td>
-                    <input onChange={this.description1} type="text" />
-                  </td>
-                </tr>
-                {this.Table()}
-              </tbody>
-            </table>
+      <div>
+        <div className="container">
+          <div className="row clearfix">
+            <div className="col-md-12 column">
+              <table
+                className="table table-bordered table-hover"
+                id="tab_logic"
+              >
+                <thead>
+                  <tr>
+                    <th className="text-center"> Key</th>
+                    <th className="text-center"> value </th>
+                    <th className="text-center"> Description </th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.rows.map((item, idx) => (
+                    <tr id="addr0" key={idx}>
+                      <td>
+                        <input
+                          type="text"
+                          name="key"
+                          value={this.state.rows[idx].key}
+                          onChange={this.handleChange(idx)}
+                          className="form-control"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="value"
+                          value={this.state.rows[idx].value}
+                          onChange={this.handleChange(idx)}
+                          className="form-control"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="description"
+                          value={this.state.rows[idx].description}
+                          onChange={this.handleChange(idx)}
+                          className="form-control"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-outline-danger btn-sm"
+                          onClick={this.handleRemoveSpecificRow(idx)}
+                        >
+                          Remove
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <button onClick={this.handleAddRow} className="btn btn-primary">
+                Add Row
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -10,10 +10,6 @@ export function getAllItem(myStore, dataName) {
 }
 
 export function createItem(dataName, myStore, data) {
-  // get the localstorage under the data name
-  // then json parse it
-  // then append the data argurment
-  // stringify and save it back
   var localData = localStorage.getItem(dataName);
   localData = JSON.parse(localData);
   data.id = uuidv1();
@@ -21,7 +17,7 @@ export function createItem(dataName, myStore, data) {
   localStorage.setItem(dataName, JSON.stringify(localData));
   myStore.dispatch({
     type: "COLLECTION_CREATED",
-    data
+    data: localData
   });
 }
 

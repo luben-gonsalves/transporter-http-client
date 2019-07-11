@@ -1,13 +1,11 @@
 import { getAllItem } from "../api/localStorageAdapter";
 import { myStore } from "../store";
 
-// FETCH_COLLECTIONS
-// CLEAR_COLLECTIONS
 function collectionsReducer(collections = [], action) {
   if (action.type === "FETCH_COLLECTION") {
     getAllItem(myStore, "collection");
   }
-  
+
   if (action.type === "COLLECTIONS_LOADED") {
     return action.collections;
   }
@@ -33,10 +31,8 @@ function collectionsReducer(collections = [], action) {
 
 
 
-
-
-
-
+// FETCH_COLLECTIONS
+// CLEAR_COLLECTIONS
 // var localCollection = localStorage.getItem("collection");
 // if (!localCollection) {
 //   localCollection = [];
