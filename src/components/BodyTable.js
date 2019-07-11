@@ -41,7 +41,7 @@ class BodyTable extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-8">
-                  <table class="table table-borderless">
+                  <table className="table table-borderless">
                     <thead>
                       <tr>
                         <th scope="col">Key</th>

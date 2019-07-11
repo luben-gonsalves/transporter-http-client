@@ -7,9 +7,9 @@ class AddRequestComponent extends React.Component {
   render() {
     return (
       <div>
-        <div class="dropdown">
+        <div className="dropdown">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            className="btn btn-secondary dropdown-toggle"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -18,8 +18,8 @@ class AddRequestComponent extends React.Component {
           >
             Add to
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            {this.props.collection.map((a, i) => {
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {this.props.collections.map((a, i) => {
               return (
                 <AddTo key={i} index={i} stateData={this.props.stateData}>
                   {a.collectionName}

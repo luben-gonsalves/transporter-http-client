@@ -18,7 +18,7 @@ class AddToComponent extends React.Component {
 
   render() {
     return (
-      <a class="dropdown-item" href="#" onClick={this.handleClick}>
+      <a className="dropdown-item" href="#" onClick={this.handleClick}>
         {this.props.children}
       </a>
     );
