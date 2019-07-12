@@ -1,7 +1,7 @@
 import { createItem } from "../api/localStorageAdapter";
 import { myStore } from "../store";
 
-function oneCollectionReducer(collection = {}, action) {
+function oneCollectionReducer(oneCollection = {}, action) {
   if (action.type === "CREATE_COLLECTION") {
     createItem("collection", myStore, action.collectionData);
   }
@@ -25,7 +25,7 @@ function oneCollectionReducer(collection = {}, action) {
   if (action.type === "COLLECTION_REMOVED") {
     return action.data;
   }
-  return collection;
+  return oneCollection;
 }
 
 export default oneCollectionReducer;

@@ -3,22 +3,29 @@ const uuidv1 = require("uuid/v1");
 export function getAllItem(myStore, dataName) {
   var localData = localStorage.getItem(dataName);
   localData = JSON.parse(localData);
-  myStore.dispatch({
-    type: "COLLECTIONS_LOADED",
-    collections: localData
-  });
+  setTimeout(function() {
+    myStore.dispatch({
+      type: "COLLECTIONS_LOADED",
+      collections: localData
+    });
+  }, 1000);
 }
 
 export function createItem(dataName, myStore, data) {
   var localData = localStorage.getItem(dataName);
   localData = JSON.parse(localData);
+  if (!localData) {
+    localData = [];
+  }
   data.id = uuidv1();
   localData.push(data);
   localStorage.setItem(dataName, JSON.stringify(localData));
-  myStore.dispatch({
-    type: "COLLECTION_CREATED",
-    data: localData
-  });
+  setTimeout(function() {
+    myStore.dispatch({
+      type: "COLLECTION_CREATED",
+      data: localData
+    });
+  }, 1000);
 }
 
 export function editOneItem(dataName, myStore, data) {
@@ -30,10 +37,12 @@ export function editOneItem(dataName, myStore, data) {
     }
   }
   localStorage.setItem(dataName, JSON.stringify(localData));
-  this.props.dispatch({
-    type: "COLLECTION_EDITED",
-    data: localData
-  });
+  setTimeout(function() {
+    this.props.dispatch({
+      type: "COLLECTION_EDITED",
+      data: localData
+    });
+  }, 1000);
 }
 
 export function removeOneItem(dataName, myStore, id) {
@@ -45,8 +54,10 @@ export function removeOneItem(dataName, myStore, id) {
     }
   }
   localStorage.setItem(dataName, JSON.stringify(localData));
-  myStore.dispatch({
-    type: "COLLECTION_REMOVED",
-    data: localData
-  });
+  setTimeout(function() {
+    myStore.dispatch({
+      type: "COLLECTION_REMOVED",
+      data: localData
+    });
+  }, 1000);
 }
