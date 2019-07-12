@@ -44,7 +44,7 @@ class InputQueryComponent extends React.Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              {this.state.method} 
+              {this.state.method}
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a
@@ -94,7 +94,6 @@ class InputQueryComponent extends React.Component {
           SEND
         </button>
         <AddRequest requestData={this.state} stateData={this.state} />
-    
       </div>
     );
   }

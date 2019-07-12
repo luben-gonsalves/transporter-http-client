@@ -2,7 +2,7 @@ import React from "react";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 
-class ParamTableComponent extends React.Component {
+class FormComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -111,5 +111,5 @@ class ParamTableComponent extends React.Component {
   }
 }
 
-let ParamTable = connect(stateMapper)(ParamTableComponent);
-export default ParamTable;
+let FormTable = connect(stateMapper)(FormComponent);
+export default FormTable;
