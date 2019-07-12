@@ -19,13 +19,14 @@ class AddRequestComponent extends React.Component {
             Add to
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            {this.props.collections.map((a, i) => {
-              return (
-                <AddTo key={i} index={i} stateData={this.props.stateData}>
-                  {a.collectionName}
-                </AddTo>
-              );
-            })}
+            {this.props.collections &&
+              this.props.collections.map((a, i) => {
+                return (
+                  <AddTo key={i} index={i} stateData={this.props.stateData}>
+                    {a.collectionName}
+                  </AddTo>
+                );
+              })}
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ class CollectionComponent extends React.Component {
   removeCollection() {
     this.props.dispatch({
       type: "REMOVE_COLLECTION",
-      id: this.props.index
+      id: this.props.collectionData.id
     });
   }
 
@@ -43,7 +43,7 @@ class CollectionComponent extends React.Component {
     var data = {
       collectionName,
       description,
-      index: this.props.index
+      index: this.props.collectionData.id
     };
 
     this.props.dispatch({

@@ -16,14 +16,9 @@ class CollectionsComponent extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch({
-      type: "FETCH_COLLECTION"
+      type: "FETCH_COLLECTIONS"
     });
   }
-  // componentDidUpdate() {
-  //   this.props.dispatch({
-  //     type: "FETCH_COLLECTION"
-  //   });
-  // }
 
   showData() {
     if (this.props.collections) {

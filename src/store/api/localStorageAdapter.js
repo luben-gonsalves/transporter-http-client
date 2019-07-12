@@ -8,7 +8,7 @@ export function getAllItem(myStore, dataName) {
       type: "COLLECTIONS_LOADED",
       collections: localData
     });
-  }, 1000);
+  }, 5);
 }
 
 export function createItem(dataName, myStore, data) {
@@ -25,7 +25,7 @@ export function createItem(dataName, myStore, data) {
       type: "COLLECTION_CREATED",
       data: localData
     });
-  }, 1000);
+  }, 5);
 }
 
 export function editOneItem(dataName, myStore, data) {
@@ -33,16 +33,18 @@ export function editOneItem(dataName, myStore, data) {
   localData = JSON.parse(localData);
   for (var i = 0; i < localData.length; i++) {
     if (localData[i].id === data.id) {
-      localData[i] = data;
+      // localData[i] = data;
+      localData.splice(i, 1, data);
     }
   }
+
   localStorage.setItem(dataName, JSON.stringify(localData));
   setTimeout(function() {
-    this.props.dispatch({
+    myStore.dispatch({
       type: "COLLECTION_EDITED",
-      data: localData
+      data: data
     });
-  }, 1000);
+  }, 5);
 }
 
 export function removeOneItem(dataName, myStore, id) {
@@ -51,7 +53,9 @@ export function removeOneItem(dataName, myStore, id) {
   for (var i = 0; i < localData.length; i++) {
     if (localData[i].id === id) {
       localData.splice(i, 1);
+      break;
     }
+    console.log(i);
   }
   localStorage.setItem(dataName, JSON.stringify(localData));
   setTimeout(function() {
@@ -59,5 +63,5 @@ export function removeOneItem(dataName, myStore, id) {
       type: "COLLECTION_REMOVED",
       data: localData
     });
-  }, 1000);
+  }, 5);
 }

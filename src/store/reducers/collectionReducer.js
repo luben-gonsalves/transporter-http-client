@@ -1,4 +1,9 @@
-import { createItem } from "../api/localStorageAdapter";
+import {
+  createItem,
+  editOneItem,
+  removeOneItem
+} from "../api/localStorageAdapter";
+
 import { myStore } from "../store";
 
 function oneCollectionReducer(oneCollection = {}, action) {
@@ -11,7 +16,7 @@ function oneCollectionReducer(oneCollection = {}, action) {
   }
 
   if (action.type === "EDIT_COLLECTION") {
-    createItem("collection", myStore, action.editData);
+    editOneItem("collection", myStore, action.editData);
   }
 
   if (action.type === "COLLECTION_EDITED") {
@@ -19,7 +24,7 @@ function oneCollectionReducer(oneCollection = {}, action) {
   }
 
   if (action.type === "REMOVE_COLLECTION") {
-    createItem("collection", myStore, action.id);
+    removeOneItem("collection", myStore, action.id);
   }
 
   if (action.type === "COLLECTION_REMOVED") {
