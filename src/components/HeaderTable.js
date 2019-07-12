@@ -43,7 +43,6 @@ class HeaderTable extends React.Component {
   };
 
   render() {
-    console.log(this.state.rows);
     return (
       <div>
         <div className="row clearfix">
