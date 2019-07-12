@@ -37,7 +37,7 @@ export function editOneItem(dataName, myStore, data) {
       localData.splice(i, 1, data);
     }
   }
-
+  console.log(localData);
   localStorage.setItem(dataName, JSON.stringify(localData));
   setTimeout(function() {
     myStore.dispatch({

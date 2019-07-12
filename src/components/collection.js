@@ -43,7 +43,7 @@ class CollectionComponent extends React.Component {
     var data = {
       collectionName,
       description,
-      index: this.props.collectionData.id
+      id: this.props.collectionData.id
     };
 
     this.props.dispatch({
