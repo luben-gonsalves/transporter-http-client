@@ -20,6 +20,7 @@ class BodyTable extends React.Component {
               form-data
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
               class="nav-link"
