@@ -89,13 +89,12 @@ class CollectionComponent extends React.Component {
   render() {
     return (
       <div>
-        <div className="btn-group pt-3">
+        <div className="btn-group pt-2">
           <button
             type="button"
             className="btn btn-info "
             onClick={this.handleButton}
           >
-            {/* {this.props.collectionData.collectionName} */}
             {this.props.children}
           </button>
           <button

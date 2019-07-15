@@ -4,6 +4,8 @@ import { myStore } from "../store";
 function collectionsReducer(collections = [], action) {
   if (
     action.type === "FETCH_COLLECTIONS" ||
+    action.type === "COLLECTION_CREATED" ||
+    action.type === "COLLECTION_EDITED" ||
     action.type === "COLLECTION_REMOVED"
   ) {
     getAllItem(myStore, "collection");
@@ -14,36 +16,6 @@ function collectionsReducer(collections = [], action) {
   }
   return collections;
 }
-
-// FETCH_COLLECTIONS
-// CLEAR_COLLECTIONS
-// var localCollection = localStorage.getItem("collection");
-// if (!localCollection) {
-//   localCollection = [];
-// }
-// localCollection = JSON.parse(localCollection);
-// function collectionsReducer(collection = [], action) {
-//   if (action.type === "CREATE_COLLECTION") {
-//     createItem("collection", state);
-//     // localStorage.setItem("collection", JSON.stringify(state));
-//     return;
-//   }
-
-//   if (action.type === "DELETE_COLLECTION") {
-//     let state = collection.slice();
-//     state.splice(action.index, 1);
-//     localStorage.setItem("collection", JSON.stringify(state));
-//     return state;
-//   }
-
-//   if (action.type === "EDIT_COLLECTION") {
-//     let state = collection.slice();
-//     state[action.editData.index].collectionName =
-//       action.editData.collectionName;
-//     state[action.editData.index].description = action.editData.description;
-//     localStorage.setItem("collection", JSON.stringify(state));
-//     return state;
-//   }
 
 //   if (action.type === "ADD_REQUEST") {
 //     let state = collection.slice();

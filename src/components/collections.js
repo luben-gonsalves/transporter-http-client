@@ -19,12 +19,7 @@ class CollectionsComponent extends React.Component {
     this.props.dispatch({
       type: "FETCH_COLLECTIONS"
     });
-    console.log("ComponentWillMount=>collections");
   }
-
-  // componentDidMount() {
-  //   console.log("ComponentDidMount=>collections");
-  // }
 
   showData() {
     if (this.props.collections) {
@@ -66,14 +61,14 @@ class CollectionsComponent extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-md-3">
-            <h4>collections</h4>
+            {/* <h4>collections</h4> */}
             <button
               type="button"
-              className="btn btn-link"
+              className="btn btn-link "
               data-toggle="modal"
               data-target="#exampleModalLong"
             >
-              new collection
+              <p>new collection</p>
             </button>
             <div
               className="modal fade"
