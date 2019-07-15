@@ -9,8 +9,6 @@ class BodyTableComponent extends React.Component {
     super(props);
   }
   render() {
-    
-    console.log(this.props.JSONbody);
     return (
       <div>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -57,7 +55,9 @@ class BodyTableComponent extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-raw-tab"
           >
-            <Raw />
+            <Raw 
+            JSONbodyHandler={this.props.JSONbodyHandler}
+            />
           </div>
         </div>
       </div>

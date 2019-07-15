@@ -7,7 +7,6 @@ import '../style.css';
 
 class Params extends React.Component {
   render() {
-    console.log(this.props.handleAddRow);
     return (
       <div>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -103,7 +102,9 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-body-tab"
           >
-            <BodyTable />
+            <BodyTable 
+            JSONbodyHandler={this.props.JSONbodyHandler}
+            />
           </div>
         </div>
       </div>

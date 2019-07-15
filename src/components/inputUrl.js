@@ -17,11 +17,13 @@ class InputQueryComponent extends React.Component {
           value: "",
           description: ""
         }
-      ]
+      ],
+      jsonBody:""
     };
     this.handleSend = this.handleSend.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddRow = this.handleAddRow.bind(this);
+    this.JSONbodyHandler=this.JSONbodyHandler.bind(this);
   }
 
   handleMethod(name) {
@@ -66,8 +68,14 @@ class InputQueryComponent extends React.Component {
     rows.splice(idx, 1);
     this.setState({ rows });
   };
+
+  JSONbodyHandler(event){
+    this.setState({
+      jsonBody:event.target.value
+    })
+   }
   render() {
-    console.log(this.state.rows);
+    console.log(this.state.jsonBody);
     return (
       <div className="container">
          <div className="row">
@@ -140,6 +148,7 @@ class InputQueryComponent extends React.Component {
        rows ={this.state.rows}
        handleChange={this.handleChange}
        handleRemoveSpecificRow ={this.handleRemoveSpecificRow}
+       JSONbodyHandler={this.JSONbodyHandler}
        />
       </div>
 </div>
