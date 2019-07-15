@@ -35,6 +35,14 @@ class CollectionComponent extends React.Component {
     });
   }
 
+  // componentDidMount() {
+  //   console.log("ComponentDidMount=>collection");
+  // }
+
+  // componentWillMount() {
+  //   console.log("ComponentWillMount=>collection");
+  // }
+
   editCollection() {
     let $ = window.$;
     let modal = this.modal.current;

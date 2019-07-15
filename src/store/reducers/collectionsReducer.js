@@ -2,7 +2,10 @@ import { getAllItem } from "../api/localStorageAdapter";
 import { myStore } from "../store";
 
 function collectionsReducer(collections = [], action) {
-  if (action.type === "FETCH_COLLECTIONS") {
+  if (
+    action.type === "FETCH_COLLECTIONS" ||
+    action.type === "COLLECTION_REMOVED"
+  ) {
     getAllItem(myStore, "collection");
   }
 
@@ -11,25 +14,6 @@ function collectionsReducer(collections = [], action) {
   }
   return collections;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // FETCH_COLLECTIONS
 // CLEAR_COLLECTIONS

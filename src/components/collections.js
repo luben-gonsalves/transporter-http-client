@@ -14,11 +14,17 @@ class CollectionsComponent extends React.Component {
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.save = this.save.bind(this);
   }
-  componentDidMount() {
+
+  componentWillMount() {
     this.props.dispatch({
       type: "FETCH_COLLECTIONS"
     });
+    console.log("ComponentWillMount=>collections");
   }
+
+  // componentDidMount() {
+  //   console.log("ComponentDidMount=>collections");
+  // }
 
   showData() {
     if (this.props.collections) {
