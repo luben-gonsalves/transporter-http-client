@@ -1,6 +1,7 @@
 import React from "react";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
+import '../style.css';
 
 class RawComponent extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class RawComponent extends React.Component {
         <div class="form-group">
           <label for="exampleFormControlTextarea1" />
           <textarea
-            class="form-control"
+            className=" form-control"
             id="exampleFormControlTextarea1"
             rows="7"
           />
