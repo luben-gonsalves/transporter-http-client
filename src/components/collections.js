@@ -14,22 +14,24 @@ class CollectionsComponent extends React.Component {
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.save = this.save.bind(this);
   }
+  componentDidMount() {
+    this.props.dispatch({
+      type: "FETCH_COLLECTIONS"
+    });
+  }
 
   showData() {
-    return this.props.collections.map((a, i) => {
-      return (
-        <div>
-          <Collection
-            collectionData={a}
-            index={i}
-            key={a.id}
-            editCollection={this.editCollection}
-          >
-            {a.collectionName}
-          </Collection>
-        </div>
-      );
-    });
+    if (this.props.collections) {
+      return this.props.collections.map((a, i) => {
+        return (
+          <div>
+            <Collection collectionData={a} index={i} key={a.id}>
+              {a.collectionName}
+            </Collection>
+          </div>
+        );
+      });
+    }
   }
 
   onChangeHandler(event) {

@@ -2,6 +2,7 @@ import React from "react";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 import { AddRequest } from "./AddRequest";
+import '../style.css';
 
 class InputQueryComponent extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class InputQueryComponent extends React.Component {
         <div className="input-group-prepend">
           <div className="dropdown">
             <button
-              className="btn btn-success dropdown-toggle"
+              className=" input dropdown-toggle"
               type="button"
               id="dropdownMenuButton"
               data-toggle="dropdown"
@@ -88,11 +89,11 @@ class InputQueryComponent extends React.Component {
         />
         <button
           type="button"
-          className="btn btn-success"
+          className="send"
           onClick={this.handleSend}
         >
           SEND
-        </button>
+        </button>&nbsp;&nbsp;
         <AddRequest requestData={this.state} stateData={this.state} />
       </div>
     );

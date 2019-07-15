@@ -2,7 +2,7 @@ import { getAllItem } from "../api/localStorageAdapter";
 import { myStore } from "../store";
 
 function collectionsReducer(collections = [], action) {
-  if (action.type === "FETCH_COLLECTION") {
+  if (action.type === "FETCH_COLLECTIONS") {
     getAllItem(myStore, "collection");
   }
 
