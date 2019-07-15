@@ -4,17 +4,20 @@ import Collection from "./collections";
 import Histories from "./histories.js";
 import Response from "./response";
 import { InputQuery } from "./inputUrl";
-import Import from "./import";
 import { Provider } from "react-redux";
 import { myStore } from "../store/store.js";
+import Navbar from "./Navbar";
+import '../style.css';
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={myStore}>
         <div className="container">
+          <Navbar />
+          <br></br>
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-3 sideBorder">
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
                   <a
@@ -62,7 +65,7 @@ class App extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-9">
+            <div className="col-md-9 rightBorder">
               <InputQuery />
               <Params />
               <Response />

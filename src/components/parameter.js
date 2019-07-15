@@ -3,6 +3,7 @@ import ParamTable from "./ParamTable";
 import HeaderTable from "./HeaderTable";
 import Authentication from "./authentication";
 import BodyTable from "./BodyTable";
+import '../style.css';
 
 class Params extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class Params extends React.Component {
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
             <a
-              class="nav-link active"
+              className="nav-link active"
               id="pills-home-tab"
               data-toggle="pill"
               href="#pills-home"
@@ -22,9 +23,10 @@ class Params extends React.Component {
               Param
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
-              class="nav-link"
+              className="nav-link"
               id="pills-profile-tab"
               data-toggle="pill"
               href="#pills-profile"
@@ -35,9 +37,10 @@ class Params extends React.Component {
               Authentication
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
-              class="nav-link"
+              className="nav-link"
               id="pills-contact-tab"
               data-toggle="pill"
               href="#pills-contact"
@@ -48,9 +51,10 @@ class Params extends React.Component {
               Header
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
-              class="nav-link"
+              className="nav-link"
               id="pills-body-tab"
               data-toggle="pill"
               href="#pills-body"

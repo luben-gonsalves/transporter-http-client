@@ -1,3 +1,129 @@
-input {
-    padding: 0;
+.color {
+    margin-top:0.5em;
+    background-color: #e8e8e8;
+    height:3.8em;
+    padding-right: -10px;
+    padding-left: -10px;
 }
+.sideBorder {
+    border: 1px solid ;
+    padding: 10px;
+    margin-top: -25px;
+    border-bottom-left-radius: 3%;
+    border-top-left-radius:3%;
+}
+.rightBorder {
+    border: 1px solid ;
+    padding:10px;
+    margin-top: -25px;
+    border-bottom-right-radius: 4%;
+    border-top-right-radius: 3%;
+}
+
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.send {
+    background-color: rgb(228, 172, 68);
+    border: none;
+    color: white;
+    padding: 7px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor:pointer;
+    border-radius:1px 10px 10px 1px;
+}
+.send:focus {
+    box-shadow: red;
+    outline-width: 1px;
+    outline-color: red;
+}
+.send:hover {background-color:rgb(255, 136, 0)}
+.ImportExport {
+    background-color: rgb(228, 172, 68);
+    border: none;
+    color: white;
+    padding: 7px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor:pointer;
+    border-radius:10px 10px 10px 10px;
+    overflow: hidden;
+}
+
+.ImportExport:focus {box-shadow: red;
+    outline-width: 1px;
+    outline-color: red;}
+.ImportExport:hover {background-color:rgb(255, 136, 0) }
+
+.Transporter {
+    background-color: rgb(0, 174, 255);
+    border: none;
+    color: white;
+    padding: 7px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor:pointer;
+    border-radius:10px 10px 10px 10px;
+}
+.Transporter:focus {outline:0}
+
+.input {
+    background-color: rgb(228, 172, 68);
+    border: none;
+    color: white;
+    padding: 7px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor:pointer;
+}
+.input:focus {
+    box-shadow: red;
+    outline-width: 1px;
+    outline-color: red;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color:black;
+    background-color:rgb(228, 172, 68);
+}
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+    color:black;
+}
+.btn-primary {
+    color: #fff;
+    background-color: rgb(228, 172, 68);
+    border-color:rgb(228, 172, 68)
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: rgb(228, 172, 68);
+    border-color:rgb(228, 172, 68);
+    box-shadow: 0 0 0 0.2rem rgb(228, 172, 68);
+}
+ a {
+     outline-color: grey;
+ }
+
+ a.nav-link {
+     outline-style: solid;
+     outline-width: thin;
+ }
+ .drop {
+     outline-style: solid;
+     outline-width: thin;
+     outline-color: black;
+
+ }
