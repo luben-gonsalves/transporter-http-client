@@ -7,6 +7,7 @@ import '../style.css';
 
 class Params extends React.Component {
   render() {
+    console.log(this.props.handleAddRow);
     return (
       <div>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -73,7 +74,12 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <ParamTable />
+            <ParamTable 
+             handleAddRow ={this.props.handleAddRow}
+             rows={this.props.rows}
+             handleChange={this.props.handleChange}
+             handleRemoveSpecificRow ={this.props.handleRemoveSpecificRow}
+            />
           </div>
           <div
             class="tab-pane fade"
