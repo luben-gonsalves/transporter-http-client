@@ -1,9 +1,16 @@
 import React from "react";
 import FormTable from "./formTable";
 import Raw from "./raw";
+import { stateMapper } from "../store/store";
+import { connect } from "react-redux";
 
-class BodyTable extends React.Component {
+class BodyTableComponent extends React.Component {
+  constructor(props){
+    super(props);
+  }
   render() {
+    
+    console.log(this.props.JSONbody);
     return (
       <div>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -56,4 +63,6 @@ class BodyTable extends React.Component {
     );
   }
 }
+
+let BodyTable= connect(stateMapper)(BodyTableComponent);
 export default BodyTable;
