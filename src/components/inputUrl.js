@@ -18,11 +18,21 @@ class InputQueryComponent extends React.Component {
           description: ""
         }
       ],
+      HeaderRows: [
+        {
+          key: "",
+          value: "",
+          description: ""
+        }
+      ],
       jsonBody:""
     };
     this.handleSend = this.handleSend.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddRow = this.handleAddRow.bind(this);
+    this.handleHeaderChange=this.handleHeaderChange.bind(this);
+    this.handleHeaderAddRow =this.handleHeaderAddRow.bind(this);
+    this.handleHeaderRemoveSpecificRow=this.handleHeaderRemoveSpecificRow.bind(this)
     this.JSONbodyHandler=this.JSONbodyHandler.bind(this);
   }
 
@@ -53,6 +63,16 @@ class InputQueryComponent extends React.Component {
       rows: [...this.state.rows, item]
     });
   }
+  handleHeaderAddRow(){
+    const item = {
+      key: "",
+      value: "",
+      description: ""
+    };
+    this.setState({
+      HeaderRows: [...this.state.HeaderRows, item]
+    });
+  }
   handleChange = idx => e => {
     const { name, value } = e.target;
     console.log(name, value);
@@ -63,22 +83,34 @@ class InputQueryComponent extends React.Component {
       rows
     });
   };
+  handleHeaderChange = idx => e => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    const HeaderRows = [...this.state.HeaderRows];
+    HeaderRows[idx][name] = value;
+    this.setState({
+      HeaderRows
+    });
+  };
   handleRemoveSpecificRow = idx => () => {
     const rows = [...this.state.rows];
     rows.splice(idx, 1);
     this.setState({ rows });
   };
-
+  handleHeaderRemoveSpecificRow = idx => () => {
+    const HeaderRows = [...this.state.HeaderRows];
+    HeaderRows.splice(idx, 1);
+    this.setState({ HeaderRows});
+  };
   JSONbodyHandler(event){
     this.setState({
       jsonBody:event.target.value
     })
    }
   render() {
-    console.log(this.state.jsonBody);
+    console.log(this.state.HeaderRows);
     return (
-      <div className="container">
-         <div className="row">
+        <div className="container">
            <div className="input-group mb-3 ">
             <div className="input-group-prepend">
              <div className="dropdown">
@@ -140,15 +172,16 @@ class InputQueryComponent extends React.Component {
           SEND
         </button>&nbsp;&nbsp;
         <AddRequest requestData={this.state} stateData={this.state} />
-      </div>
-      </div>
-      <div className="row">
        <Params 
        handleAddRow={this.handleAddRow}
        rows ={this.state.rows}
        handleChange={this.handleChange}
        handleRemoveSpecificRow ={this.handleRemoveSpecificRow}
        JSONbodyHandler={this.JSONbodyHandler}
+       handleHeaderChange={this.handleHeaderChange}
+       handleHeaderRemoveSpecificRow={this.handleHeaderRemoveSpecificRow}
+       handleHeaderAddRow={this.handleHeaderAddRow}
+       HeaderRows={this.state.HeaderRows}
        />
       </div>
 </div>

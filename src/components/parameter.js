@@ -94,7 +94,13 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-contact-tab"
           >
-            <HeaderTable />
+            <HeaderTable 
+            handleHeaderChange={this.props.handleHeaderChange}
+            handleHeaderRemoveSpecificRow={this.props.handleHeaderRemoveSpecificRow}
+            handleHeaderAddRow={this.props.handleHeaderAddRow}
+            HeaderRows={this.props.HeaderRows}
+            
+            />
           </div>
           <div
             class="tab-pane fade"
