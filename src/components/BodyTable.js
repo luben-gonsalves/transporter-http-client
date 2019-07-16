@@ -1,8 +1,13 @@
 import React from "react";
 import FormTable from "./formTable";
 import Raw from "./raw";
+import { stateMapper } from "../store/store";
+import { connect } from "react-redux";
 
-class BodyTable extends React.Component {
+class BodyTableComponent extends React.Component {
+  constructor(props){
+    super(props);
+  }
   render() {
     return (
       <div>
@@ -20,6 +25,7 @@ class BodyTable extends React.Component {
               form-data
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
               class="nav-link"
@@ -49,11 +55,15 @@ class BodyTable extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-raw-tab"
           >
-            <Raw />
+            <Raw 
+            JSONbodyHandler={this.props.JSONbodyHandler}
+            />
           </div>
         </div>
       </div>
     );
   }
 }
+
+let BodyTable= connect(stateMapper)(BodyTableComponent);
 export default BodyTable;

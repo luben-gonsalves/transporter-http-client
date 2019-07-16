@@ -35,6 +35,14 @@ class CollectionComponent extends React.Component {
     });
   }
 
+  // componentDidMount() {
+  //   console.log("ComponentDidMount=>collection");
+  // }
+
+  // componentWillMount() {
+  //   console.log("ComponentWillMount=>collection");
+  // }
+
   editCollection() {
     let $ = window.$;
     let modal = this.modal.current;
@@ -43,7 +51,7 @@ class CollectionComponent extends React.Component {
     var data = {
       collectionName,
       description,
-      index: this.props.collectionData.id
+      id: this.props.collectionData.id
     };
 
     this.props.dispatch({
@@ -81,13 +89,12 @@ class CollectionComponent extends React.Component {
   render() {
     return (
       <div>
-        <div className="btn-group pt-3">
+        <div className="btn-group pt-2">
           <button
             type="button"
             className="btn btn-info "
             onClick={this.handleButton}
           >
-            {/* {this.props.collectionData.collectionName} */}
             {this.props.children}
           </button>
           <button

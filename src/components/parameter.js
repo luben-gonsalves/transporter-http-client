@@ -12,7 +12,7 @@ class Params extends React.Component {
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
             <a
-              class="nav-link active"
+              className="nav-link active"
               id="pills-home-tab"
               data-toggle="pill"
               href="#pills-home"
@@ -23,9 +23,10 @@ class Params extends React.Component {
               Param
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
-              class="nav-link"
+              className="nav-link"
               id="pills-profile-tab"
               data-toggle="pill"
               href="#pills-profile"
@@ -36,9 +37,10 @@ class Params extends React.Component {
               Authentication
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
-              class="nav-link"
+              className="nav-link"
               id="pills-contact-tab"
               data-toggle="pill"
               href="#pills-contact"
@@ -49,9 +51,10 @@ class Params extends React.Component {
               Header
             </a>
           </li>
+          &nbsp;
           <li class="nav-item">
             <a
-              class="nav-link"
+              className="nav-link"
               id="pills-body-tab"
               data-toggle="pill"
               href="#pills-body"
@@ -70,7 +73,12 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <ParamTable />
+            <ParamTable 
+             handleAddRow ={this.props.handleAddRow}
+             rows={this.props.rows}
+             handleChange={this.props.handleChange}
+             handleRemoveSpecificRow ={this.props.handleRemoveSpecificRow}
+            />
           </div>
           <div
             class="tab-pane fade"
@@ -94,7 +102,9 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-body-tab"
           >
-            <BodyTable />
+            <BodyTable 
+            JSONbodyHandler={this.props.JSONbodyHandler}
+            />
           </div>
         </div>
       </div>

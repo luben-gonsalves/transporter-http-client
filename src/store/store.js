@@ -7,6 +7,8 @@ import MethodReducer from "./reducers/MethodReducer";
 import sendReducer from "./reducers/sendReducer";
 import historiesReducer from "./reducers/historyReducer"
 import responseReducer from "./reducers/responseReducer"
+import rawJSONbodyReducer from './reducers/rawJSONbodyReducer';
+
 
 let myReducer = combineReducers({
   collections: collectionsReducer,
@@ -16,6 +18,7 @@ let myReducer = combineReducers({
   send: sendReducer,
   histories: historiesReducer,
   response: responseReducer
+  JSONbody:rawJSONbodyReducer
 });
 
 let myStore = createStore(myReducer);
