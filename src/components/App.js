@@ -7,18 +7,22 @@ import { InputQuery } from "./inputUrl";
 import { Provider } from "react-redux";
 import { myStore } from "../store/store.js";
 import Navbar from "./Navbar";
-import '../style.css';
+import "../style.css";
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={myStore}>
-        <div className="container">
+         <div className="container">
           <Navbar />
-          <br></br>
+          <br />
           <div className="row">
             <div className="col-md-3 sideBorder">
-              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <ul
+                class="nav nav-pills mb-3 offset-md-2"
+                id="pills-tab"
+                role="tablist"
+              >
                 <li class="nav-item">
                   <a
                     class="nav-link active"
@@ -66,9 +70,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="col-md-9 rightBorder">
-              <div className="row">
               <InputQuery />
-              </div>
               <Response />
               
             </div>

@@ -1,6 +1,5 @@
 import React from "react";
-import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
-
+import "../../node_modules/font-awesome/css/font-awesome.min.css";
 
 class HeaderTable extends React.Component {
   constructor(props) {
@@ -59,7 +58,7 @@ class HeaderTable extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.HeaderRows.map((item, idx) => (
+                {this.props.HeaderRows && this.props.HeaderRows.map((item, idx) => (
                   <tr id="addr0" key={idx}>
                     <td>
                       <input
@@ -93,7 +92,7 @@ class HeaderTable extends React.Component {
                         className="btn btn-danger btn-sm"
                         onClick={this.props.handleHeaderRemoveSpecificRow(idx)}
                       >
-                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        <i class="fa fa-trash" aria-hidden="true" />
                       </button>
                     </td>
                   </tr>
