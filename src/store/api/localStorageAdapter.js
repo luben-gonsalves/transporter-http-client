@@ -33,10 +33,10 @@ export function editOneItem(dataName, myStore, data) {
   localData = JSON.parse(localData);
   for (var i = 0; i < localData.length; i++) {
     if (localData[i].id === data.id) {
-      localData.splice(i, 1, data);
+      localData[i].collectionName = data.collectionName;
+      localData[i].description = data.description;
     }
   }
-  console.log(localData);
   localStorage.setItem(dataName, JSON.stringify(localData));
   setTimeout(function() {
     myStore.dispatch({
@@ -70,7 +70,7 @@ export function addToCollection(myStore, requestData, id) {
   localData = JSON.parse(localData);
   for (var i = 0; i < localData.length; i++) {
     if (localData[i].id === id) {
-      if (Object.keys(localData).includes("requests")) {
+      if (Object.keys(localData[i]).includes("requests")) {
         localData[i].requests.push(requestData);
       } else {
         localData[i].requests = [];

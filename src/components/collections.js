@@ -26,7 +26,7 @@ class CollectionsComponent extends React.Component {
       return this.props.collections.map((a, i) => {
         return (
           <div>
-            <Collection collectionData={a} id={a.id} key={a.id}>
+            <Collection collectionData={a} id={a.id} key={a.id} index={i}>
               {a.collectionName}
             </Collection>
           </div>
