@@ -1,14 +1,24 @@
 const uuidv1 = require("uuid/v1");
+const moment = require("moment");
 
 export function getAllItem(myStore, dataName) {
   var localData = localStorage.getItem(dataName);
   localData = JSON.parse(localData);
-  setTimeout(function() {
-    myStore.dispatch({
-      type: "COLLECTIONS_LOADED",
-      collections: localData
-    });
-  }, 5);
+  if (dataName === "collection") {
+    setTimeout(function() {
+      myStore.dispatch({
+        type: "COLLECTIONS_LOADED",
+        collections: localData
+      });
+    }, 5);
+  } else {
+    setTimeout(function() {
+      myStore.dispatch({
+        type: "HISTORY_LOADED",
+        histories: localData
+      });
+    }, 5);
+  }
 }
 
 export function createItem(dataName, myStore, data) {
@@ -99,6 +109,50 @@ export function deleteRequest(myStore, id, index) {
   setTimeout(function() {
     myStore.dispatch({
       type: "REQUEST_DELETED",
+      data: []
+    });
+  }, 5);
+}
+
+export function createHistory(dataName, myStore, data) {
+  var date = moment().format("MMMM Do");
+  var localData = localStorage.getItem(dataName);
+  localData = JSON.parse(localData);
+  if (!localData) {
+    localData = [];
+  }
+  var pushed = false;
+  for (var i = 0; i < localData.length; i++) {
+    if (date === localData[i].historyName) {
+      localData[i].requests.push(data);
+      pushed = true;
+    }
+  }
+
+  if (!pushed) {
+    var obj = {
+      historyName: date,
+      requests: [data]
+    };
+    localData.push(obj);
+  }
+
+  localStorage.setItem(dataName, JSON.stringify(localData));
+  setTimeout(function() {
+    myStore.dispatch({
+      type: "HISORY_CREATED",
+      data: localData
+    });
+  }, 5);
+}
+
+export function clearHistory(dataName, myStore, id) {
+  localStorage.setItem(dataName, JSON.stringify([]));
+  var localData = localStorage.getItem(dataName);
+  localData = JSON.parse(localData);
+  setTimeout(function() {
+    myStore.dispatch({
+      type: "HISTORY_CLEARED",
       data: localData
     });
   }, 5);

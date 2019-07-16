@@ -58,82 +58,77 @@ class CollectionsComponent extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-3">
-            {/* <h4>collections</h4> */}
-            <button
-              type="button"
-              className="btn btn-link "
-              data-toggle="modal"
-              data-target="#exampleModalLong"
-            >
-              <p>new collection</p>
-            </button>
-            <div
-              className="modal fade"
-              id="exampleModalLong"
-              tabIndex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLongTitle"
-              aria-hidden="true"
-              ref={this.modal}
-            >
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLongTitle">
-                      New Collection
-                    </h5>
-                    <button
-                      type="button"
-                      className="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    Collection Name
-                    <input
-                      type="text"
-                      value={this.state.collectionName}
-                      name="collectionName"
-                      className="form-control"
-                      onChange={this.onChangeHandler}
-                    />
-                    Description
-                    <input
-                      type="text"
-                      value={this.state.description}
-                      name="description"
-                      className="form-control"
-                      onChange={this.onChangeHandler}
-                    />
-                  </div>
-                  <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={this.save}
-                    >
-                      Save changes
-                    </button>
-                  </div>
-                </div>
+      <div class="text-center">
+        <button
+          type="button"
+          className="btn btn-link "
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          <p>new collection</p>
+        </button>
+        <div
+          className="modal fade"
+          id="exampleModalLong"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+          ref={this.modal}
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLongTitle">
+                  New Collection
+                </h5>
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                Collection Name
+                <input
+                  type="text"
+                  value={this.state.collectionName}
+                  name="collectionName"
+                  className="form-control"
+                  onChange={this.onChangeHandler}
+                />
+                Description
+                <input
+                  type="text"
+                  value={this.state.description}
+                  name="description"
+                  className="form-control"
+                  onChange={this.onChangeHandler}
+                />
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={this.save}
+                >
+                  Save changes
+                </button>
               </div>
             </div>
-            {this.showData()}
           </div>
         </div>
+        {this.showData()}
       </div>
     );
   }

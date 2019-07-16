@@ -22,6 +22,7 @@ class InputQueryComponent extends React.Component {
     };
     this.handleSend = this.handleSend.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeData = this.handleChangeData.bind(this);
     this.handleAddRow = this.handleAddRow.bind(this);
     this.JSONbodyHandler = this.JSONbodyHandler.bind(this);
   }
@@ -32,7 +33,7 @@ class InputQueryComponent extends React.Component {
     });
   }
 
-  handleChange(event) {
+  handleChangeData(event) {
     var name = event.target.name;
     this.setState({
       [name]: event.target.value
@@ -142,7 +143,7 @@ class InputQueryComponent extends React.Component {
               aria-label="Default"
               aria-describedby="inputGroup-sizing-default"
               name="url"
-              onChange={this.handleChange}
+              onChange={this.handleChangeData}
             />
             <button type="button" className="send" onClick={this.handleSend}>
               SEND
