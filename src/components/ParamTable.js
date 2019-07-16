@@ -47,7 +47,11 @@ class ParamTableComponent extends React.Component {
   // };
 
   render() {
+
+    console.log(this.state.rows);
+
     console.log(this.props.handleAddRow);
+
     return (
       <div>
         <div className="row clearfix">
