@@ -5,13 +5,15 @@ import oneCollectionReducer from "./reducers/collectionReducer";
 import inputQueryReducer from "./reducers/inputQueryReducer";
 import MethodReducer from "./reducers/MethodReducer";
 import sendReducer from "./reducers/sendReducer";
+import rawJSONbodyReducer from './reducers/rawJSONbodyReducer';
 
 let myReducer = combineReducers({
   collections: collectionsReducer,
   oneCollection: oneCollectionReducer,
   inputQuery: inputQueryReducer,
   Method: MethodReducer,
-  send: sendReducer
+  send: sendReducer,
+  JSONbody:rawJSONbodyReducer
 });
 
 let myStore = createStore(myReducer);

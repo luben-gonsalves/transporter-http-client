@@ -3,16 +3,27 @@ import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 import { AddRequest } from "./AddRequest";
 import '../style.css';
+import Params from './parameter';
 
 class InputQueryComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       method: "GET",
-      url: ""
+      url: "",
+      rows: [
+        {
+          key: "",
+          value: "",
+          description: ""
+        }
+      ],
+      jsonBody:""
     };
     this.handleSend = this.handleSend.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleAddRow = this.handleAddRow.bind(this);
+    this.JSONbodyHandler=this.JSONbodyHandler.bind(this);
   }
 
   handleMethod(name) {
@@ -31,12 +42,46 @@ class InputQueryComponent extends React.Component {
   handleSend() {
     console.log(this.state);
   }
+  
+  handleAddRow(){
+    const item = {
+      key: "",
+      value: "",
+      description: ""
+    };
+    this.setState({
+      rows: [...this.state.rows, item]
+    });
+  }
+  handleChange = idx => e => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    const rows = [...this.state.rows];
+    rows[idx][name] = value;
+    console.log(rows[idx]);
+    this.setState({
+      rows
+    });
+  };
+  handleRemoveSpecificRow = idx => () => {
+    const rows = [...this.state.rows];
+    rows.splice(idx, 1);
+    this.setState({ rows });
+  };
 
+  JSONbodyHandler(event){
+    this.setState({
+      jsonBody:event.target.value
+    })
+   }
   render() {
+    console.log(this.state.jsonBody);
     return (
-      <div className="input-group mb-3 ">
-        <div className="input-group-prepend">
-          <div className="dropdown">
+      <div className="container">
+         <div className="row">
+           <div className="input-group mb-3 ">
+            <div className="input-group-prepend">
+             <div className="dropdown">
             <button
               className=" input dropdown-toggle"
               type="button"
@@ -96,6 +141,17 @@ class InputQueryComponent extends React.Component {
         </button>&nbsp;&nbsp;
         <AddRequest requestData={this.state} stateData={this.state} />
       </div>
+      </div>
+      <div className="row">
+       <Params 
+       handleAddRow={this.handleAddRow}
+       rows ={this.state.rows}
+       handleChange={this.handleChange}
+       handleRemoveSpecificRow ={this.handleRemoveSpecificRow}
+       JSONbodyHandler={this.JSONbodyHandler}
+       />
+      </div>
+</div>
     );
   }
 }
