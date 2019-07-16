@@ -5,18 +5,22 @@ import oneCollectionReducer from "./reducers/collectionReducer";
 import inputQueryReducer from "./reducers/inputQueryReducer";
 import MethodReducer from "./reducers/MethodReducer";
 import sendReducer from "./reducers/sendReducer";
+import historiesReducer from "./reducers/historyReducer"
+import responseReducer from "./reducers/responseReducer"
 
 let myReducer = combineReducers({
   collections: collectionsReducer,
   oneCollection: oneCollectionReducer,
   inputQuery: inputQueryReducer,
   Method: MethodReducer,
-  send: sendReducer
+  send: sendReducer,
+  histories: historiesReducer,
+  response: responseReducer
 });
 
 let myStore = createStore(myReducer);
 
-myStore.subscribe(function() {
+myStore.subscribe(function () {
   console.log(myStore.getState());
 });
 
