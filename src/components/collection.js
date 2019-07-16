@@ -35,14 +35,6 @@ class CollectionComponent extends React.Component {
     });
   }
 
-  // componentDidMount() {
-  //   console.log("ComponentDidMount=>collection");
-  // }
-
-  // componentWillMount() {
-  //   console.log("ComponentWillMount=>collection");
-  // }
-
   editCollection() {
     let $ = window.$;
     let modal = this.modal.current;
@@ -78,7 +70,7 @@ class CollectionComponent extends React.Component {
               a={a}
               key={i}
               requestIndex={i}
-              collectionIndex={this.props.index}
+              id={this.props.id}
             />
           </div>
         );

@@ -33,7 +33,6 @@ export function editOneItem(dataName, myStore, data) {
   localData = JSON.parse(localData);
   for (var i = 0; i < localData.length; i++) {
     if (localData[i].id === data.id) {
-      // localData[i] = data;
       localData.splice(i, 1, data);
     }
   }
@@ -61,6 +60,45 @@ export function removeOneItem(dataName, myStore, id) {
   setTimeout(function() {
     myStore.dispatch({
       type: "COLLECTION_REMOVED",
+      data: localData
+    });
+  }, 5);
+}
+
+export function addToCollection(myStore, requestData, id) {
+  var localData = localStorage.getItem("collection");
+  localData = JSON.parse(localData);
+  for (var i = 0; i < localData.length; i++) {
+    if (localData[i].id === id) {
+      if (Object.keys(localData).includes("requests")) {
+        localData[i].requests.push(requestData);
+      } else {
+        localData[i].requests = [];
+        localData[i].requests.push(requestData);
+      }
+    }
+  }
+  localStorage.setItem("collection", JSON.stringify(localData));
+  setTimeout(function() {
+    myStore.dispatch({
+      type: "REQUEST_ADDED",
+      data: localData
+    });
+  }, 5);
+}
+
+export function deleteRequest(myStore, id, index) {
+  var localData = localStorage.getItem("collection");
+  localData = JSON.parse(localData);
+  for (var i = 0; i < localData.length; i++) {
+    if (localData[i].id === id) {
+      localData[i].requests.splice(index, 1);
+    }
+  }
+  localStorage.setItem("collection", JSON.stringify(localData));
+  setTimeout(function() {
+    myStore.dispatch({
+      type: "REQUEST_DELETED",
       data: localData
     });
   }, 5);

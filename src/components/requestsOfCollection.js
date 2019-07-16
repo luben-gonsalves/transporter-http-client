@@ -11,7 +11,7 @@ class RequestOfCollectionComponent extends React.Component {
     this.props.dispatch({
       type: "DELETE_REQUEST",
       requestIndex: this.props.requestIndex,
-      collectionIndex: this.props.collectionIndex
+      id: this.props.id
     });
   }
 
@@ -29,14 +29,6 @@ class RequestOfCollectionComponent extends React.Component {
             {this.props.a.method} {this.props.a.url.slice(0, 8)}
           </button>
           <div className="dropdown-menu ">
-            {/* <a
-                  className="dropdown-item"
-                  href="#requestModal"
-                  data-toggle="modal"
-                  data-target="#requestModal"
-                >
-                  Edit
-                </a> */}
             <a className="dropdown-item" href="#" onClick={this.removeRequest}>
               Delete
             </a>
