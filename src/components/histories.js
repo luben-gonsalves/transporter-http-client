@@ -1,5 +1,7 @@
 import React from "react";
 import HistoryData from "./historyData";
+import { stateMapper } from "../store/store";
+import { connect } from "react-redux";
 
 var data = [
 

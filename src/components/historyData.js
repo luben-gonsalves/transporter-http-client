@@ -1,5 +1,8 @@
 import React from "react";
+import { stateMapper } from "../store/store";
+import { connect } from "react-redux";
 import '../style.css';
+
 
 class HistoryData extends React.Component {
     constructor(props) {
