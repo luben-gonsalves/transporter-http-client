@@ -17,36 +17,41 @@ class ParamTableComponent extends React.Component {
     };
   }
 
-  handleChange = idx => e => {
-    const { name, value } = e.target;
-    console.log(name, value);
-    const rows = [...this.state.rows];
-    rows[idx][name] = value;
-    console.log(rows[idx]);
-    this.setState({
-      rows
-    });
-  };
+  // handleChange = idx => e => {
+  //   const { name, value } = e.target;
+  //   console.log(name, value);
+  //   const rows = [...this.state.rows];
+  //   rows[idx][name] = value;
+  //   console.log(rows[idx]);
+  //   this.setState({
+  //     rows
+  //   });
+  // };
 
-  handleAddRow = () => {
-    const item = {
-      key: "",
-      value: "",
-      description: ""
-    };
-    this.setState({
-      rows: [...this.state.rows, item]
-    });
-  };
+  // handleAddRow= () => {
+  //   const item = {
+  //     key: "",
+  //     value: "",
+  //     description: ""
+  //   };
+  //   this.setState({
+  //     rows: [...this.state.rows, item]
+  //   });
+  //   this.props.handleAddRow(rows);
+  // };
 
-  handleRemoveSpecificRow = idx => () => {
-    const rows = [...this.state.rows];
-    rows.splice(idx, 1);
-    this.setState({ rows });
-  };
+  // handleRemoveSpecificRow = idx => () => {
+  //   const rows = [...this.state.rows];
+  //   rows.splice(idx, 1);
+  //   this.setState({ rows });
+  // };
 
   render() {
+
     console.log(this.state.rows);
+
+    console.log(this.props.handleAddRow);
+
     return (
       <div>
         <div className="row clearfix">
@@ -61,14 +66,14 @@ class ParamTableComponent extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.rows.map((item, idx) => (
+                {this.props.rows.map((item, idx) => (
                   <tr id="addr0" key={idx}>
                     <td>
                       <input
                         type="text"
                         name="key"
-                        value={this.state.rows[idx].key}
-                        onChange={this.handleChange(idx)}
+                        value={this.props.rows[idx].key}
+                        onChange={this.props.handleChange(idx)}
                         className="form-control"
                       />
                     </td>
@@ -76,8 +81,8 @@ class ParamTableComponent extends React.Component {
                       <input
                         type="text"
                         name="value"
-                        value={this.state.rows[idx].value}
-                        onChange={this.handleChange(idx)}
+                        value={this.props.rows[idx].value}
+                        onChange={this.props.handleChange(idx)}
                         className="form-control"
                       />
                     </td>
@@ -85,15 +90,15 @@ class ParamTableComponent extends React.Component {
                       <input
                         type="text"
                         name="description"
-                        value={this.state.rows[idx].description}
-                        onChange={this.handleChange(idx)}
+                        value={this.props.rows[idx].description}
+                        onChange={this.props.handleChange(idx)}
                         className="form-control"
                       />
                     </td>
                     <td>
                       <button
                         className="btn btn-danger btn-sm"
-                        onClick={this.handleRemoveSpecificRow(idx)}
+                        onClick={this.props.handleRemoveSpecificRow(idx)}
                       >
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </button>
@@ -102,7 +107,7 @@ class ParamTableComponent extends React.Component {
                 ))}
               </tbody>
             </table>
-            <button onClick={this.handleAddRow} className="btn btn-lg btn-primary">
+            <button onClick={this.props.handleAddRow} className="btn btn-lg btn-primary">
             <i class="fa fa-plus-square" aria-hidden="true"></i>
             </button>
           </div>
