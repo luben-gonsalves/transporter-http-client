@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={myStore}>
-        <div className="container">
+         <div className="container">
           <Navbar />
           <br />
           <div className="row">
@@ -72,6 +72,7 @@ class App extends React.Component {
             <div className="col-md-9 rightBorder">
               <InputQuery />
               <Response />
+              
             </div>
           </div>
         </div>

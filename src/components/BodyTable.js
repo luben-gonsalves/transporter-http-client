@@ -47,7 +47,13 @@ class BodyTableComponent extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-form-data-tab"
           >
-          <FormTable />
+          <FormTable 
+           handleBodyChange={this.props.handleBodyChange}
+           handleBodyAddRow={this.props.handleBodyAddRow}
+           handleBodyRemoveSpecificRow={this.props.handleBodyRemoveSpecificRow}
+           bodyRows={this.props.bodyRows}
+          
+          />
           </div>
           <div
             class="tab-pane fade"
