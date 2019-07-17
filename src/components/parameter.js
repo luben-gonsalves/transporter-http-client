@@ -3,7 +3,7 @@ import ParamTable from "./ParamTable";
 import HeaderTable from "./HeaderTable";
 import Authentication from "./authentication";
 import BodyTable from "./BodyTable";
-import '../style.css';
+import "../style.css";
 
 class Params extends React.Component {
   render() {
@@ -21,20 +21,6 @@ class Params extends React.Component {
               aria-selected="true"
             >
               Param
-            </a>
-          </li>
-          &nbsp;
-          <li class="nav-item">
-            <a
-              className="nav-link"
-              id="pills-profile-tab"
-              data-toggle="pill"
-              href="#pills-profile"
-              role="tab"
-              aria-controls="pills-profile"
-              aria-selected="false"
-            >
-              Authentication
             </a>
           </li>
           &nbsp;
@@ -73,21 +59,14 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <ParamTable 
-             handleAddRow ={this.props.handleAddRow}
-             rows={this.props.rows}
-             handleChange={this.props.handleChange}
-             handleRemoveSpecificRow ={this.props.handleRemoveSpecificRow}
+            <ParamTable
+              handleAddRow={this.props.handleAddRow}
+              rows={this.props.rows}
+              handleChange={this.props.handleChange}
+              handleRemoveSpecificRow={this.props.handleRemoveSpecificRow}
             />
           </div>
-          <div
-            class="tab-pane fade"
-            id="pills-profile"
-            role="tabpanel"
-            aria-labelledby="pills-profile-tab"
-          >
-            <Authentication />
-          </div>
+
           <div
             class="tab-pane fade"
             id="pills-contact"
@@ -102,9 +81,7 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-body-tab"
           >
-            <BodyTable 
-            JSONbodyHandler={this.props.JSONbodyHandler}
-            />
+            <BodyTable JSONbodyHandler={this.props.JSONbodyHandler} />
           </div>
         </div>
       </div>

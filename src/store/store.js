@@ -17,7 +17,7 @@ let myReducer = combineReducers({
   Method: MethodReducer,
   send: sendReducer,
   histories: historiesReducer,
-  response: responseReducer
+  response: responseReducer,
   JSONbody:rawJSONbodyReducer
 });
 

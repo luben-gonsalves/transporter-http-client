@@ -47,7 +47,7 @@ class BodyTableComponent extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-form-data-tab"
           >
-            <FormTable />
+          <FormTable />
           </div>
           <div
             class="tab-pane fade"

@@ -1,7 +1,9 @@
 import {
   createItem,
   editOneItem,
-  removeOneItem
+  removeOneItem,
+  addToCollection,
+  deleteRequest
 } from "../api/localStorageAdapter";
 
 import { myStore } from "../store";
@@ -30,6 +32,22 @@ function oneCollectionReducer(oneCollection = {}, action) {
   if (action.type === "COLLECTION_REMOVED") {
     return action.data;
   }
+
+  if (action.type === "ADD_REQUEST") {
+    addToCollection(myStore, action.requestData, action.id);
+  }
+
+  if (action.type === "REQUEST_ADDED") {
+    return action.data;
+  }
+
+  if (action.type === "DELETE_REQUEST") {
+    deleteRequest(myStore, action.id, action.requestIndex);
+  }
+  if (action.type === "REQUEST_DELETED") {
+    return action.data;
+  }
+
   return oneCollection;
 }
 
