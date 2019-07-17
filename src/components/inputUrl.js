@@ -25,6 +25,13 @@ class InputQueryComponent extends React.Component {
           description: ""
         }
       ],
+      bodyRows: [
+        {
+          key: "",
+          value: "",
+          description: ""
+        }
+      ],
       jsonBody:"",
       send:false
     };
@@ -89,6 +96,17 @@ class InputQueryComponent extends React.Component {
       HeaderRows: [...this.state.HeaderRows, item]
     });
   }
+  handleBodyAddRow(){
+    const item = {
+      key: "",
+      value: "",
+      description: ""
+    };
+    this.setState({
+      bodyRows: [...this.state.bodyRows, item]
+    });
+  }
+
 
   handleChange = idx => e => {
     const { name, value } = e.target;
@@ -109,6 +127,15 @@ class InputQueryComponent extends React.Component {
       HeaderRows
     });
   };
+  handleBodyChange = idx => e => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    const bodyRows = [...this.state.bodyRows];
+    bodyRows[idx][name] = value;
+    this.setState({
+      bodyRows
+    });
+  };
   handleRemoveSpecificRow = idx => () => {
     const rows = [...this.state.rows];
     rows.splice(idx, 1);
@@ -118,6 +145,10 @@ class InputQueryComponent extends React.Component {
     const HeaderRows = [...this.state.HeaderRows];
     HeaderRows.splice(idx, 1);
     this.setState({ HeaderRows});
+  };handleBodyRemoveSpecificRow = idx => () => {
+    const bodyRows = [...this.state.bodyRows];
+    bodyRows.splice(idx, 1);
+    this.setState({ bodyRows});
   };
 
   JSONbodyHandler(event) {
@@ -126,7 +157,7 @@ class InputQueryComponent extends React.Component {
     });
   }
   render() {
-    console.log(this.state.HeaderRows);
+    console.log(this.state.bodyRows);
     return (
       <div className="container">
         <div className="row">
@@ -204,6 +235,10 @@ class InputQueryComponent extends React.Component {
        handleHeaderRemoveSpecificRow={this.handleHeaderRemoveSpecificRow}
        handleHeaderAddRow={this.handleHeaderAddRow}
        HeaderRows={this.state.HeaderRows}
+       handleBodyChange={this.handleBodyChange}
+       handleBodyAddRow={this.handleBodyAddRow}
+       handleBodyRemoveSpecificRow={this.handleBodyRemoveSpecificRow}
+       bodyRows={this.state.bodyRows}
        />
        </div>
       </div>

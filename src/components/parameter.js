@@ -87,7 +87,12 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-body-tab"
           >
-            <BodyTable JSONbodyHandler={this.props.JSONbodyHandler} />
+            <BodyTable 
+            JSONbodyHandler={this.props.JSONbodyHandler}
+            handleBodyChange={this.props.handleBodyChange}
+            handleBodyAddRow={this.props.handleBodyAddRow}
+            handleBodyRemoveSpecificRow={this.props.handleBodyRemoveSpecificRow}
+            bodyRows={this.props.bodyRows} />
           </div>
         </div>
       </div>
