@@ -1,22 +1,9 @@
 import React from "react";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
-import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
+import "../../node_modules/font-awesome/css/font-awesome.min.css";
 
 class FormComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rows: [
-        {
-          key: "",
-          value: "",
-          description: ""
-        }
-      ]
-    };
-  }
-
   render() {
     return (
       <div>
@@ -66,15 +53,18 @@ class FormComponent extends React.Component {
                         className="btn btn-danger btn-sm"
                         onClick={this.props.handleBodyRemoveSpecificRow(idx)}
                       >
-                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <i class="fa fa-trash" aria-hidden="true" />
                       </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <button onClick={this.props.handleBodyAddRow} className="btn btn-lg btn-primary">
-            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <button
+              onClick={this.props.handleBodyAddRow}
+              className="btn btn-lg btn-primary"
+            >
+              <i class="fa fa-plus-square" aria-hidden="true" />
             </button>
           </div>
         </div>

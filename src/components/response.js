@@ -11,8 +11,9 @@ class ResponseComponent extends React.Component {
           <textarea
             class="form-control"
             id="exampleFormControlTextarea1"
-            rows="5"
+            rows="8"
             readOnly
+            value={this.props.response}
           />
         </div>
       </div>
