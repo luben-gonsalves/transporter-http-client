@@ -39,8 +39,7 @@ function sendHttpRequest(store, data) {
     keys.forEach((key, i) => (body[key] = values[i]));
     httpRequest.body = JSON.stringify(body);
   }
-  console.log(httpRequest);
-
+  
   if (data.jsonBody) {
     httpRequest.body = data.jsonBody;
   }
