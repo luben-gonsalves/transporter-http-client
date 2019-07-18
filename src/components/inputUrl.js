@@ -12,37 +12,40 @@ class InputQueryComponent extends React.Component {
       method: "GET",
       url: "",
       rows: [
-        {
-          key: "",
-          value: "",
-          description: ""
-        }
+        // {
+        //   key: "",
+        //   value: "",
+        //   description: ""
+        // }
       ],
       HeaderRows: [
-        {
-          key: "",
-          value: "",
-          description: ""
-        }
+        // {
+        //   key: "",
+        //   value: "",
+        //   description: ""
+        // }
       ],
       bodyRows: [
-        {
-          key: "",
-          value: "",
-          description: ""
-        }
+        // {
+        //   key: "",
+        //   value: "",
+        //   description: ""
+        // }
       ],
-      jsonBody:"",
-      send:false
+      jsonBody: "",
+      send: false
     };
     this.handleSend = this.handleSend.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeData = this.handleChangeData.bind(this);
     this.handleAddRow = this.handleAddRow.bind(this);
-    this.handleHeaderChange=this.handleHeaderChange.bind(this);
-    this.handleHeaderAddRow =this.handleHeaderAddRow.bind(this);
-    this.handleHeaderRemoveSpecificRow=this.handleHeaderRemoveSpecificRow.bind(this)
-    this.JSONbodyHandler=this.JSONbodyHandler.bind(this);
+    this.handleBodyAddRow = this.handleBodyAddRow.bind(this);
+    this.handleHeaderChange = this.handleHeaderChange.bind(this);
+    this.handleHeaderAddRow = this.handleHeaderAddRow.bind(this);
+    this.handleHeaderRemoveSpecificRow = this.handleHeaderRemoveSpecificRow.bind(
+      this
+    );
+    this.JSONbodyHandler = this.JSONbodyHandler.bind(this);
   }
 
   handleMethod(name) {
@@ -55,26 +58,26 @@ class InputQueryComponent extends React.Component {
     var name = event.target.name;
     this.setState({
       [name]: event.target.value,
-      send:true
+      send: true
     });
   }
 
   handleSend() {
-    if(this.state.send ===false){
+    console.log("main", this.state);
+    if (this.state.send === false) {
       alert("Enter the URL");
-    }
-    else {
-    this.props.dispatch({
-      type: "SEND_REQUEST",
-      data: this.state
-    });
+    } else {
+      this.props.dispatch({
+        type: "SEND_REQUEST",
+        data: this.state
+      });
 
-    this.props.dispatch({
-      type: "SAVE_HISTORY",
-      data: this.state
-    });
+      this.props.dispatch({
+        type: "SAVE_HISTORY",
+        data: this.state
+      });
+    }
   }
-}
 
   handleAddRow() {
     const item = {
@@ -86,7 +89,7 @@ class InputQueryComponent extends React.Component {
       rows: [...this.state.rows, item]
     });
   }
-  handleHeaderAddRow(){
+  handleHeaderAddRow() {
     const item = {
       key: "",
       value: "",
@@ -96,7 +99,7 @@ class InputQueryComponent extends React.Component {
       HeaderRows: [...this.state.HeaderRows, item]
     });
   }
-  handleBodyAddRow(){
+  handleBodyAddRow() {
     const item = {
       key: "",
       value: "",
@@ -106,7 +109,6 @@ class InputQueryComponent extends React.Component {
       bodyRows: [...this.state.bodyRows, item]
     });
   }
-
 
   handleChange = idx => e => {
     const { name, value } = e.target;
@@ -144,11 +146,12 @@ class InputQueryComponent extends React.Component {
   handleHeaderRemoveSpecificRow = idx => () => {
     const HeaderRows = [...this.state.HeaderRows];
     HeaderRows.splice(idx, 1);
-    this.setState({ HeaderRows});
-  };handleBodyRemoveSpecificRow = idx => () => {
+    this.setState({ HeaderRows });
+  };
+  handleBodyRemoveSpecificRow = idx => () => {
     const bodyRows = [...this.state.bodyRows];
     bodyRows.splice(idx, 1);
-    this.setState({ bodyRows});
+    this.setState({ bodyRows });
   };
 
   JSONbodyHandler(event) {
@@ -225,25 +228,23 @@ class InputQueryComponent extends React.Component {
           </div>
         </div>
         <div className="row">
-       <Params 
-       handleAddRow={this.handleAddRow}
-       rows ={this.state.rows}
-       handleChange={this.handleChange}
-       handleRemoveSpecificRow ={this.handleRemoveSpecificRow}
-       JSONbodyHandler={this.JSONbodyHandler}
-       handleHeaderChange={this.handleHeaderChange}
-       handleHeaderRemoveSpecificRow={this.handleHeaderRemoveSpecificRow}
-       handleHeaderAddRow={this.handleHeaderAddRow}
-       HeaderRows={this.state.HeaderRows}
-       handleBodyChange={this.handleBodyChange}
-       handleBodyAddRow={this.handleBodyAddRow}
-       handleBodyRemoveSpecificRow={this.handleBodyRemoveSpecificRow}
-       bodyRows={this.state.bodyRows}
-       />
-       </div>
+          <Params
+            handleAddRow={this.handleAddRow}
+            rows={this.state.rows}
+            handleChange={this.handleChange}
+            handleRemoveSpecificRow={this.handleRemoveSpecificRow}
+            JSONbodyHandler={this.JSONbodyHandler}
+            handleHeaderChange={this.handleHeaderChange}
+            handleHeaderRemoveSpecificRow={this.handleHeaderRemoveSpecificRow}
+            handleHeaderAddRow={this.handleHeaderAddRow}
+            HeaderRows={this.state.HeaderRows}
+            handleBodyChange={this.handleBodyChange}
+            handleBodyAddRow={this.handleBodyAddRow}
+            handleBodyRemoveSpecificRow={this.handleBodyRemoveSpecificRow}
+            bodyRows={this.state.bodyRows}
+          />
+        </div>
       </div>
-      
-      
     );
   }
 }
