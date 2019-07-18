@@ -39,7 +39,7 @@ function sendHttpRequest(store, data) {
     keys.forEach((key, i) => (body[key] = values[i]));
     httpRequest.body = JSON.stringify(body);
   }
-  
+
   if (data.jsonBody) {
     httpRequest.body = data.jsonBody;
   }
@@ -52,7 +52,7 @@ function sendHttpRequest(store, data) {
       console.log("response", response);
       store.dispatch({
         type: "DATA_FETCHED",
-        responseData: JSON.stringify(response)
+        responseData: JSON.stringify(response, undefined, 2)
       });
     })
     .catch(function(err) {
