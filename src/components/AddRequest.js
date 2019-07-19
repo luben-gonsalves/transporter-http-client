@@ -9,7 +9,7 @@ class AddRequestComponent extends React.Component {
       <div>
         <div className="dropdown">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="input dropdown-toggle"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -22,7 +22,7 @@ class AddRequestComponent extends React.Component {
             {this.props.collections &&
               this.props.collections.map((a, i) => {
                 return (
-                  <AddTo key={i} index={i} stateData={this.props.stateData}>
+                  <AddTo key={a.id} id={a.id} stateData={this.props.stateData}>
                     {a.collectionName}
                   </AddTo>
                 );

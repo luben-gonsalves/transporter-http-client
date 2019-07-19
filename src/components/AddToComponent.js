@@ -11,7 +11,7 @@ class AddToComponent extends React.Component {
   handleClick() {
     this.props.dispatch({
       type: "ADD_REQUEST",
-      index: this.props.index,
+      id: this.props.id,
       requestData: this.props.stateData
     });
   }

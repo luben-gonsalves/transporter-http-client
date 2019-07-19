@@ -43,7 +43,7 @@ class CollectionComponent extends React.Component {
     var data = {
       collectionName,
       description,
-      index: this.props.collectionData.id
+      id: this.props.id
     };
 
     this.props.dispatch({
@@ -70,7 +70,7 @@ class CollectionComponent extends React.Component {
               a={a}
               key={i}
               requestIndex={i}
-              collectionIndex={this.props.index}
+              id={this.props.id}
             />
           </div>
         );
@@ -81,13 +81,12 @@ class CollectionComponent extends React.Component {
   render() {
     return (
       <div>
-        <div className="btn-group pt-3">
+        <div className="btn-group pt-2">
           <button
             type="button"
             className="btn btn-info "
             onClick={this.handleButton}
           >
-            {/* {this.props.collectionData.collectionName} */}
             {this.props.children}
           </button>
           <button

@@ -1,8 +1,13 @@
-import { getAllItem } from "../api/localStorageAdapter.js";
+import {
+  getAllItem,
+  clearHistory,
+  createItem,
+  createHistory
+} from "../api/localStorageAdapter.js";
 import { myStore } from "../store";
 
 function historiesReducer(histories = [], action) {
-  if (action.type === "FETCH_HISTORIES") {
+  if (action.type === "FETCH_HISTORIES" || action.type === "HISORY_CREATED") {
     getAllItem(myStore, "history");
   }
 
@@ -10,8 +15,16 @@ function historiesReducer(histories = [], action) {
     return action.histories;
   }
 
+  if (action.type === "SAVE_HISTORY") {
+    createHistory("history", myStore, action.data);
+  }
+
+  if (action.type === "HISTORY_CREATED") {
+    return action.data;
+  }
+
   if (action.type === "CLEAR_HISTORY") {
-    clearHistory("history", myStore, action.id);
+    clearHistory("history", myStore);
   }
 
   if (action.type === "HISTORY_CLEARED") {

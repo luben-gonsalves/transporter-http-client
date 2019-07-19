@@ -3,69 +3,42 @@ import HistoryData from "./historyData";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 
-var data = [
-
-  {
-    historyName: "july 8",
-    requests: [
-      {
-        requestName: "GET",
-        url: "https://"
-      },
-      {
-        requestName: "POST",
-        url: "https://"
-      },
-      {
-        requestName: "PUT",
-        url: "https://"
-      }
-    ]
+class HistoriesComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClear = this.handleClear.bind(this);
   }
-  ,
-
-  {
-    historyName: "july 7",
-    requests: [
-      {
-        requestName: "GET",
-        url: "https://"
-      },
-      {
-        requestName: "POST",
-        url: "https://"
-      },
-      {
-        requestName: "PUT",
-        url: "https://"
-      }
-    ]
+  componentWillMount() {
+    this.props.dispatch({
+      type: "FETCH_HISTORIES"
+    });
   }
 
-];
-
-class Histories extends React.Component {
-
-
+  handleClear() {
+    this.props.dispatch({
+      type: "CLEAR_HISTORY"
+    });
+  }
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-3">
-            <h4>Histories</h4>
-            {data.map((a, i) => {
-              return (
-                <div>
-                  <HistoryData key={a} index={i} hdata={a} />
-                </div>
-              )
-            })}
-
-          </div>
-        </div>
+      <div class="text-center">
+        <h4>Histories</h4>
+        <hr />
+        <h6 class="text-right btn-link" onClick={this.handleClear}>
+          clearall
+        </h6>
+        {this.props.histories &&
+          this.props.histories.map((a, i) => {
+            return (
+              <div>
+                <HistoryData key={a.id} index={i} hdata={a} />
+              </div>
+            );
+          })}
       </div>
     );
   }
 }
 
+let Histories = connect(stateMapper)(HistoriesComponent);
 export default Histories;

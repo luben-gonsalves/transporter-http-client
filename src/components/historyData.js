@@ -1,8 +1,10 @@
 import React from "react";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
+import "../style.css";
 
-class HistoryData extends React.Component {
+
+class HistoryDataComponent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -15,43 +17,55 @@ class HistoryData extends React.Component {
   handleButton() {
     this.state.showMore
       ? this.setState({
-        showMore: false
-      })
+          showMore: false
+        })
       : this.setState({
-        showMore: true
-      });
+          showMore: true
+        });
   }
   historyData() {
-    console.log(this.props.hdata)
-
     if (this.props.hdata.requests && this.state.showMore) {
-
       return this.props.hdata.requests.map(b => {
         return (
           <div>
-            <button type="button" class="btn btn-secondary btn-sm">{b.requestName}</button>
+            <button type="button" className="btn btn-link">
+              <span> {b.method}</span> <span>{b.url.slice(0, 60)}</span>
+            </button>
             <br />
             <br />
           </div>
+        );
+      });
 
-        )
-      })
     }
   }
 
   render() {
     return (
-      <div >
+      <div>
         <div class="btn-group">
-
-          <button type="button" onClick={this.handleButton} class="btn btn-secondary btn-sm">{this.props.hdata.historyName}</button>
-
-          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
+          <button
+            type="button"
+            onClick={this.handleButton}
+            class="input btn-sm"
+          >
+            {this.props.hdata.historyName}
           </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Remove</a>
-          </div>
+
+          {/* <button
+            type="button"
+            class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle Dropdown</span>
+          </button> */}
+          {/* <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              Remove
+            </a>
+          </div> */}
         </div>
         <br />
         <br />
@@ -61,4 +75,5 @@ class HistoryData extends React.Component {
   }
 }
 
+let HistoryData = connect(stateMapper)(HistoryDataComponent);
 export default HistoryData;
