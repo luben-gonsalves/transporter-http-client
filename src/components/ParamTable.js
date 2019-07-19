@@ -5,7 +5,6 @@ import "../../node_modules/font-awesome/css/font-awesome.min.css";
 
 class ParamTableComponent extends React.Component {
   render() {
-   
     return (
       <div>
         <div className="row clearfix">

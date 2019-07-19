@@ -5,9 +5,6 @@ import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 
 class BodyTableComponent extends React.Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div>
@@ -47,13 +44,14 @@ class BodyTableComponent extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-form-data-tab"
           >
-          <FormTable 
-           handleBodyChange={this.props.handleBodyChange}
-           handleBodyAddRow={this.props.handleBodyAddRow}
-           handleBodyRemoveSpecificRow={this.props.handleBodyRemoveSpecificRow}
-           bodyRows={this.props.bodyRows}
-          
-          />
+            <FormTable
+              handleBodyChange={this.props.handleBodyChange}
+              handleBodyAddRow={this.props.handleBodyAddRow}
+              handleBodyRemoveSpecificRow={
+                this.props.handleBodyRemoveSpecificRow
+              }
+              bodyRows={this.props.bodyRows}
+            />
           </div>
           <div
             class="tab-pane fade"
@@ -61,9 +59,7 @@ class BodyTableComponent extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-raw-tab"
           >
-            <Raw 
-            JSONbodyHandler={this.props.JSONbodyHandler}
-            />
+            <Raw JSONbodyHandler={this.props.JSONbodyHandler} />
           </div>
         </div>
       </div>
@@ -71,5 +67,5 @@ class BodyTableComponent extends React.Component {
   }
 }
 
-let BodyTable= connect(stateMapper)(BodyTableComponent);
+let BodyTable = connect(stateMapper)(BodyTableComponent);
 export default BodyTable;

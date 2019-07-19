@@ -49,7 +49,7 @@ class ResponseComponent extends React.Component {
     }
 
     if (!jsonPretty) {
-      return <div />;
+      return <textarea cols="100" rows="10" className="mt-3" />;
     } else {
       return (
         // <div>
@@ -61,7 +61,9 @@ class ResponseComponent extends React.Component {
         //   </Highlight>
         // </div>
         <div>
-          <Highlight language="JSON">{jsonPretty}</Highlight>
+          <Highlight language="JSON" className="mt-3">
+            {jsonPretty}
+          </Highlight>
         </div>
       );
     }
