@@ -3,7 +3,8 @@ import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 import "../style.css";
 
-class HistoryDataComponent extends React.Component {
+
+class HistoryDataComponent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -35,6 +36,7 @@ class HistoryDataComponent extends React.Component {
           </div>
         );
       });
+
     }
   }
 
