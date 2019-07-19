@@ -7,7 +7,8 @@ function sendHttpRequest(store, data) {
     httpRequest.method = data.method;
   }
 
-  if (data.rows.length > 0) {
+  if (data.rows.length > 0 && data.rows[0].key !== "") {
+    console.log("entered");
     var result = "";
     for (var i in data.rows) {
       result += data.rows[i].key + "=" + data.rows[i].value + "&";
@@ -16,7 +17,7 @@ function sendHttpRequest(store, data) {
     url.slice(0, -1);
   }
 
-  if (data.HeaderRows.length > 0) {
+  if (data.HeaderRows.length > 0 && data.HeaderRows[0].key !== "") {
     let keys = [];
     let values = [];
     let headers = {};
@@ -28,7 +29,7 @@ function sendHttpRequest(store, data) {
     httpRequest.headers = headers;
   }
 
-  if (data.bodyRows.length > 0) {
+  if (data.bodyRows.length > 0 && data.bodyRows[0].key !== "") {
     let keys = [];
     let values = [];
     let body = {};
@@ -39,7 +40,6 @@ function sendHttpRequest(store, data) {
     keys.forEach((key, i) => (body[key] = values[i]));
     httpRequest.body = JSON.stringify(body);
   }
-  console.log(httpRequest);
 
   if (data.jsonBody) {
     httpRequest.body = data.jsonBody;
@@ -53,7 +53,7 @@ function sendHttpRequest(store, data) {
       console.log("response", response);
       store.dispatch({
         type: "DATA_FETCHED",
-        responseData: JSON.stringify(response)
+        responseData: JSON.stringify(response, undefined, 2)
       });
     })
     .catch(function(err) {

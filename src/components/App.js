@@ -72,7 +72,6 @@ class App extends React.Component {
             <div className="col-md-9 rightBorder">
               <InputQuery />
               <Response />
-              
             </div>
           </div>
         </div>

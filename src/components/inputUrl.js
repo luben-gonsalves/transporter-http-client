@@ -12,25 +12,25 @@ class InputQueryComponent extends React.Component {
       method: "GET",
       url: "",
       rows: [
-        // {
-        //   key: "",
-        //   value: "",
-        //   description: ""
-        // }
+        {
+          key: "",
+          value: "",
+          description: ""
+        }
       ],
       HeaderRows: [
-        // {
-        //   key: "",
-        //   value: "",
-        //   description: ""
-        // }
+        {
+          key: "",
+          value: "",
+          description: ""
+        }
       ],
       bodyRows: [
-        // {
-        //   key: "",
-        //   value: "",
-        //   description: ""
-        // }
+        {
+          key: "",
+          value: "",
+          description: ""
+        }
       ],
       jsonBody: "",
       send: false
