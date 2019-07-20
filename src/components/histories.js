@@ -24,9 +24,12 @@ class HistoriesComponent extends React.Component {
       <div class="text-center">
         <h4>Histories</h4>
         <hr />
-        <h6 class="text-right btn-link" onClick={this.handleClear}>
-          clearall
-        </h6>
+        {this.props.histories && (
+          <button class="btn btn-link offset-md-8" onClick={this.handleClear}>
+            clearall
+          </button>
+        )}
+
         {this.props.histories &&
           this.props.histories.map((a, i) => {
             return (
