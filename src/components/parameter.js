@@ -64,6 +64,8 @@ class Params extends React.Component {
               rows={this.props.rows}
               handleChange={this.props.handleChange}
               handleRemoveSpecificRow={this.props.handleRemoveSpecificRow}
+              dark={this.props.dark}
+              light={this.props.light}
             />
           </div>
 
