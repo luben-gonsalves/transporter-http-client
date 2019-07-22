@@ -9,104 +9,101 @@ import Navbar from "./Navbar";
 import "../style.css";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-      this.state={
-          dark:false,
-          light:false
-      }
-      this.checkdark=this.checkdark.bind(this);
-      this.checklight=this.checklight.bind(this);
+    this.state = {
+      dark: false,
+      light: false
+    };
+    this.checkdark = this.checkdark.bind(this);
+    this.checklight = this.checklight.bind(this);
+  }
+  checkdark() {
+    this.setState({
+      dark: true,
+      light: false
+    });
+  }
 
-}
-checkdark(){
-  this.setState({
-      dark:true,
-      light:false
-  })
-}
-
-checklight(){
-  this.setState({
-      dark:false,
-      light:true
-  })
-}
+  checklight() {
+    this.setState({
+      dark: false,
+      light: true
+    });
+  }
   render() {
-    console.log(this.state.dark,this.state.light);
+    console.log(this.state.dark, this.state.light);
     return (
       <Provider store={myStore}>
-        <div className={this.state.dark? "dark":"light"}>
-         <div className={`container mode`}>
-          <Navbar 
-          checkdark={this.checkdark}
-          checklight={this.checklight}
-          dark={this.state.dark}
-          light={this.state.light}
-          />
-          <br />
-          <div className="row">
-            <div className="col-md-3 sideBorder">
-              <ul
-                class="nav nav-pills mb-3 offset-md-2"
-                id="pills-tab"
-                role="tablist"
-              >
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    id="pills-history-tab"
-                    data-toggle="pill"
-                    href="#pills-history"
-                    role="tab"
-                    aria-controls="pills-history"
-                    aria-selected="true"
-                  >
-                    History
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="pills-collections-tab"
-                    data-toggle="pill"
-                    href="#pills-collections"
-                    role="tab"
-                    aria-controls="pills-collections"
-                    aria-selected="false"
-                  >
-                    Collections
-                  </a>
-                </li>
-              </ul>
-              <div class="tab-content" id="pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-history"
-                  role="tabpanel"
-                  aria-labelledby="pills-history-tab"
-                >
-                  <Histories />
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="pills-collections"
-                  role="tabpanel"
-                  aria-labelledby="pills-collections-tab"
-                >
-                  <Collection />
-                </div>
-              </div>
-            </div>
-            <div className="col-md-9 rightBorder">
-              <InputQuery 
+        <div className={this.state.dark ? "dark" : "light"}>
+          <div className={`container mode`}>
+            <p />
+            <Navbar
+              checkdark={this.checkdark}
+              checklight={this.checklight}
               dark={this.state.dark}
               light={this.state.light}
-              />
-              <Response />
+            />
+            <br />
+            <div className="row">
+              <div className="col-md-3 sideBorder">
+                <ul
+                  class="nav nav-pills mb-3 offset-md-2"
+                  id="pills-tab"
+                  role="tablist"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      id="pills-history-tab"
+                      data-toggle="pill"
+                      href="#pills-history"
+                      role="tab"
+                      aria-controls="pills-history"
+                      aria-selected="true"
+                    >
+                      History
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      id="pills-collections-tab"
+                      data-toggle="pill"
+                      href="#pills-collections"
+                      role="tab"
+                      aria-controls="pills-collections"
+                      aria-selected="false"
+                    >
+                      Collections
+                    </a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="pills-history"
+                    role="tabpanel"
+                    aria-labelledby="pills-history-tab"
+                  >
+                    <Histories />
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="pills-collections"
+                    role="tabpanel"
+                    aria-labelledby="pills-collections-tab"
+                  >
+                    <Collection />
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-9 rightBorder">
+                <InputQuery dark={this.state.dark} light={this.state.light} />
+                <Response />
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </Provider>
     );

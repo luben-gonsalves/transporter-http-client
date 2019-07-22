@@ -168,7 +168,7 @@ class InputQueryComponent extends React.Component {
             <div className="input-group-prepend">
               <div className="dropdown">
                 <button
-                  className=" input dropdown-toggle"
+                  className=" input dropdown-toggle btn btn-info"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
@@ -220,7 +220,11 @@ class InputQueryComponent extends React.Component {
               name="url"
               onChange={this.handleChangeData}
             />
-            <button type="button" className="send" onClick={this.handleSend}>
+            <button
+              type="button"
+              className="send btn btn-info"
+              onClick={this.handleSend}
+            >
               SEND
             </button>
             &nbsp;
