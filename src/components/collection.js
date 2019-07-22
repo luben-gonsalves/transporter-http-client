@@ -93,7 +93,7 @@ class CollectionComponent extends React.Component {
         <div className="btn-group pt-2">
           <button
             type="button"
-            className="btn btn-info "
+            className="btn btn-info btn-sm"
             onClick={this.handleButton}
           >
             {this.props.children}

@@ -2,6 +2,7 @@ import React from "react";
 import Collection from "./collection";
 import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
+import Import from "./import";
 
 class CollectionsComponent extends React.Component {
   constructor(props) {
@@ -65,8 +66,14 @@ class CollectionsComponent extends React.Component {
           data-toggle="modal"
           data-target="#exampleModalLong"
         >
-          <p>new collection</p>
+          <i class="fa fa-plus" aria-hidden="true">
+            <span> new collection</span>
+          </i>
         </button>
+        <span>
+          <Import />
+        </span>
+        <hr />
         <div
           className="modal fade"
           id="exampleModalLong"
@@ -119,7 +126,7 @@ class CollectionsComponent extends React.Component {
                 </button>
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-success"
                   onClick={this.save}
                 >
                   Save changes

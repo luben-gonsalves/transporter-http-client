@@ -31,7 +31,7 @@ class Navbar extends React.Component {
                           this.props.dark ? "btn-primary" : "btn-default"
                         }`}
                       >
-                        Light Mode
+                        Dark mode
                       </a>
                     </li>
                     <li>
@@ -42,13 +42,12 @@ class Navbar extends React.Component {
                           this.props.light ? "btn-primary" : "btn-default"
                         }`}
                       >
-                        Dark mode
+                        Light mode
                       </a>
                     </li>
                   </ul>
                 </div>
               </a>
-              <Import />
             </nav>
           </div>
         </div>

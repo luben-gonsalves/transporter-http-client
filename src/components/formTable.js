@@ -62,7 +62,7 @@ class FormComponent extends React.Component {
             </table>
             <button
               onClick={this.props.handleBodyAddRow}
-              className="btn btn-lg btn-primary"
+              className="btn btn-sm btn-success"
             >
               <i class="fa fa-plus-square" aria-hidden="true" />
             </button>

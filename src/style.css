@@ -34,6 +34,8 @@
     border-radius: 1px 10px 10px 1px;
 }
 
+
+
 .send:focus {
     box-shadow: red;
     outline-width: 1px;
@@ -148,7 +150,7 @@ a.nav-link {
 }
 
 .dark .ImportExport {
-    background-color:#ADD8E6;
+    background-color: #ADD8E6;
 }
 
 .dark .btn-primary {
@@ -159,13 +161,13 @@ a.nav-link {
 
 .dark .btn-primary:hover {
     color: #fff;
-    background-color:#ADD8E6 ;
+    background-color: #ADD8E6;
     border-color: #ADD8E6;
     box-shadow: 0 0 0 0.2rem #ADD8E6;
 }
 
 .dark .send {
-    background-color:#ADD8E6 ;
+    background-color: #ADD8E6;
     border: none;
     color: white;
     padding: 7px 22px;
@@ -178,7 +180,7 @@ a.nav-link {
 }
 
 .dark .send:focus {
-    background-color:#ADD8E6;
+    background-color: #ADD8E6;
 }
 
 .dark .input {
@@ -192,29 +194,46 @@ a.nav-link {
     font-size: 16px;
     cursor: pointer;
 }
+
 .dark .input:focus {
-    box-shadow:blue;
+    box-shadow: blue;
     outline-width: 1px;
-    outline-color:blue;
+    outline-color: blue;
 }
 
 .dark .color {
-    background-color:rgb(247, 131, 131);
+    background-color: rgb(247, 131, 131);
     padding-right: -10px;
     padding-left: -10px;
 }
 
 .dark .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-    color:white;
-    background-color:#ADD8E6 ;
+    color: white;
+    background-color: #ADD8E6;
 }
+
 .dark .nav-pills .nav-link,
 .nav-pills .show>.nav-link {
-    color:white;
+    color: white;
 }
 
-.dark .textcolor{
-    color:white;
+.dark .textcolor {
+    color: white;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.addTo {
+    border-radius: 15px;
+}

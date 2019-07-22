@@ -9,7 +9,7 @@ class AddRequestComponent extends React.Component {
       <div>
         <div className="dropdown">
           <button
-            className="input dropdown-toggle"
+            className="input dropdown-toggle addTo"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"

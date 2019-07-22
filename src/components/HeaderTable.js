@@ -58,49 +58,55 @@ class HeaderTable extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.HeaderRows && this.props.HeaderRows.map((item, idx) => (
-                  <tr id="addr0" key={idx}>
-                    <td>
-                      <input
-                        type="text"
-                        name="key"
-                        value={this.props.HeaderRows[idx].key}
-                        onChange={this.props.handleHeaderChange(idx)}
-                        className="form-control"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        name="value"
-                        value={this.props.HeaderRows[idx].value}
-                        onChange={this.props.handleHeaderChange(idx)}
-                        className="form-control"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        name="description"
-                        value={this.props.HeaderRows[idx].description}
-                        onChange={this.props.handleHeaderChange(idx)}
-                        className="form-control"
-                      />
-                    </td>
-                    <td>
-                      <button
-                        className="btn btn-danger btn-sm"
-                        onClick={this.props.handleHeaderRemoveSpecificRow(idx)}
-                      >
-                        <i class="fa fa-trash" aria-hidden="true" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {this.props.HeaderRows &&
+                  this.props.HeaderRows.map((item, idx) => (
+                    <tr id="addr0" key={idx}>
+                      <td>
+                        <input
+                          type="text"
+                          name="key"
+                          value={this.props.HeaderRows[idx].key}
+                          onChange={this.props.handleHeaderChange(idx)}
+                          className="form-control"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="value"
+                          value={this.props.HeaderRows[idx].value}
+                          onChange={this.props.handleHeaderChange(idx)}
+                          className="form-control"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          name="description"
+                          value={this.props.HeaderRows[idx].description}
+                          onChange={this.props.handleHeaderChange(idx)}
+                          className="form-control"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={this.props.handleHeaderRemoveSpecificRow(
+                            idx
+                          )}
+                        >
+                          <i class="fa fa-trash" aria-hidden="true" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
-            <button onClick={this.props.handleHeaderAddRow} className="btn btn-lg btn-primary">
-            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <button
+              onClick={this.props.handleHeaderAddRow}
+              className="btn btn-sm btn-success"
+            >
+              <i class="fa fa-plus-square" aria-hidden="true" />
             </button>
           </div>
         </div>
