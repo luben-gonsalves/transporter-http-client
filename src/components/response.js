@@ -49,7 +49,11 @@ class ResponseComponent extends React.Component {
     }
 
     if (!jsonPretty) {
-      return <textarea cols="100" rows="10" className="mt-3" />;
+      return (
+        <textarea cols="100" rows="10" className="text-muted mt-3" readOnly>
+          Response
+        </textarea>
+      );
     } else {
       return (
         // <div>

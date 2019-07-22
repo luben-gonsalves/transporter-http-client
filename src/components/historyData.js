@@ -3,8 +3,7 @@ import { stateMapper } from "../store/store";
 import { connect } from "react-redux";
 import "../style.css";
 
-
-class HistoryDataComponent extends React.Component{
+class HistoryDataComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +27,7 @@ class HistoryDataComponent extends React.Component{
       return this.props.hdata.requests.map(b => {
         return (
           <div>
-            <button type="button" className="btn btn-link">
+            <button type="button" className="btn btn-sm btn-link">
               <span> {b.method}</span> <span>{b.url.slice(0, 60)}</span>
             </button>
             <br />
@@ -36,18 +35,17 @@ class HistoryDataComponent extends React.Component{
           </div>
         );
       });
-
     }
   }
 
   render() {
     return (
       <div>
-        <div class="btn-group">
+        <div class="btn-group ">
           <button
             type="button"
             onClick={this.handleButton}
-            class="input btn-sm"
+            class="btn btn-sm btn-primary"
           >
             {this.props.hdata.historyName}
           </button>

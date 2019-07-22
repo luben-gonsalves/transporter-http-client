@@ -28,14 +28,16 @@ class HistoriesComponent extends React.Component {
       <div class="text-center">
         <h4>Histories</h4>
         <hr />
-        <button
-          type="button"
-          class="btn btn-link offset-md-8"
-          data-toggle="modal"
-          data-target="#exampleModal"
-        >
-          clear all
-        </button>
+        {this.props.histories.length > 0 && (
+          <button
+            type="button"
+            class="btn btn-link offset-md-8 "
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            clear all
+          </button>
+        )}
 
         <div
           class="modal fade"

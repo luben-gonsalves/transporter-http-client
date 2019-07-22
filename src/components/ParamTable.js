@@ -8,7 +8,7 @@ class ParamTableComponent extends React.Component {
   render() {
     return (
       <div>
-         <div className={`row clearfix ${this.props.dark? "dark":"light"}`}>
+        <div className={`row clearfix ${this.props.dark ? "dark" : "light"}`}>
           <div className="col-md-12 column text-center">
             <table className="table table-bordered table-hover" id="tab_logic">
               <thead>
@@ -63,7 +63,7 @@ class ParamTableComponent extends React.Component {
             </table>
             <button
               onClick={this.props.handleAddRow}
-              className="btn btn-lg btn-primary"
+              className="btn btn-sm btn-success"
             >
               <i class="fa fa-plus-square" aria-hidden="true" />
             </button>
