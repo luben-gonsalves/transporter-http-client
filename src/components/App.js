@@ -1,5 +1,4 @@
 import React from "react";
-import Params from "./parameter";
 import Collection from "./collections";
 import Histories from "./histories.js";
 import Response from "./response";
@@ -10,11 +9,41 @@ import Navbar from "./Navbar";
 import "../style.css";
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+      this.state={
+          dark:false,
+          light:false
+      }
+      this.checkdark=this.checkdark.bind(this);
+      this.checklight=this.checklight.bind(this);
+
+}
+checkdark(){
+  this.setState({
+      dark:true,
+      light:false
+  })
+}
+
+checklight(){
+  this.setState({
+      dark:false,
+      light:true
+  })
+}
   render() {
+    console.log(this.state.dark,this.state.light);
     return (
       <Provider store={myStore}>
-         <div className="container">
-          <Navbar />
+        <div className={this.state.dark? "dark":"light"}>
+         <div className={`container mode`}>
+          <Navbar 
+          checkdark={this.checkdark}
+          checklight={this.checklight}
+          dark={this.state.dark}
+          light={this.state.light}
+          />
           <br />
           <div className="row">
             <div className="col-md-3 sideBorder">
@@ -70,10 +99,14 @@ class App extends React.Component {
               </div>
             </div>
             <div className="col-md-9 rightBorder">
-              <InputQuery />
+              <InputQuery 
+              dark={this.state.dark}
+              light={this.state.light}
+              />
               <Response />
             </div>
           </div>
+        </div>
         </div>
       </Provider>
     );
