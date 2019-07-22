@@ -51,6 +51,8 @@ class BodyTableComponent extends React.Component {
                 this.props.handleBodyRemoveSpecificRow
               }
               bodyRows={this.props.bodyRows}
+              dark={this.props.dark}
+              light={this.props.light}
             />
           </div>
           <div

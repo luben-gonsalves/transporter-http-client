@@ -1,5 +1,6 @@
 import React from "react";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
+import "../style.css";
 
 class HeaderTable extends React.Component {
   constructor(props) {
@@ -46,14 +47,14 @@ class HeaderTable extends React.Component {
   render() {
     return (
       <div>
-        <div className="row clearfix">
+        <div className={`row clearfix ${this.props.dark ? "dark" : "light"}`}>
           <div className="col-md-12 column text-center">
             <table className="table table-bordered table-hover" id="tab_logic">
               <thead>
                 <tr>
-                  <th className="text-center"> Key</th>
-                  <th className="text-center"> value </th>
-                  <th className="text-center"> Description </th>
+                  <th className="text-center textcolor"> Key</th>
+                  <th className="text-center textcolor"> value </th>
+                  <th className="text-center textcolor"> Description </th>
                   <th />
                 </tr>
               </thead>
