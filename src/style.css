@@ -22,7 +22,7 @@
 }
 
 .send {
-    background-color: #5bc0de;
+    /* background-color: #5bc0de; */
     border: none;
     color: white;
     padding: 7px 22px;
@@ -132,20 +132,19 @@ a {
     outline-color: grey;
 }
 
-a.nav-link {
+/* a.nav-link {
     outline-style: solid;
     outline-width: thin;
-}
+} */
 
 .drop {
     outline-style: solid;
     outline-width: thin;
     outline-color: black;
-
 }
 
 .dark {
-    background-color: black;
+    background-color: #212121;
 }
 
 .dark .ImportExport {
@@ -236,3 +235,10 @@ input[type="file"] {
 .addTo {
     border-radius: 25px;
 }
+
+/* hr {
+    height: 1px;
+    color: #123455;
+    background-color: #123455;
+    border: none;
+} */

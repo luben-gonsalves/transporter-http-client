@@ -86,7 +86,10 @@ class App extends React.Component {
                     role="tabpanel"
                     aria-labelledby="pills-history-tab"
                   >
-                    <Histories />
+                    <Histories
+                      dark={this.state.dark}
+                      light={this.state.light}
+                    />
                   </div>
                   <div
                     class="tab-pane fade"

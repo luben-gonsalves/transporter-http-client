@@ -73,7 +73,7 @@ class CollectionsComponent extends React.Component {
         <span>
           <Import />
         </span>
-        <hr />
+        <hr className="bg-white" />
         <div
           className="modal fade"
           id="exampleModalLong"
