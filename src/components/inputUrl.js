@@ -242,6 +242,8 @@ class InputQueryComponent extends React.Component {
             handleBodyAddRow={this.handleBodyAddRow}
             handleBodyRemoveSpecificRow={this.handleBodyRemoveSpecificRow}
             bodyRows={this.state.bodyRows}
+            dark={this.props.dark}
+            light={this.props.light}
           />
         </div>
       </div>

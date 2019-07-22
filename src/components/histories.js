@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 class HistoriesComponent extends React.Component {
   constructor(props) {
     super(props);
+    this.modal = React.createRef();
     this.handleClear = this.handleClear.bind(this);
   }
   componentWillMount() {
@@ -15,20 +16,78 @@ class HistoriesComponent extends React.Component {
   }
 
   handleClear() {
+    let $ = window.$;
+    let modal = this.modal.current;
     this.props.dispatch({
       type: "CLEAR_HISTORY"
     });
+    $(modal).modal("hide");
   }
   render() {
     return (
       <div class="text-center">
         <h4>Histories</h4>
         <hr />
-        {this.props.histories && (
+        <button
+          type="button"
+          class="btn btn-link offset-md-8"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          clear all
+        </button>
+
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+          ref={this.modal}
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Clear history
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to clear all your history requests?
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  onClick={this.handleClear}
+                >
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* {this.props.histories && (
           <button class="btn btn-link offset-md-8" onClick={this.handleClear}>
             clearall
           </button>
-        )}
+        )} */}
 
         {this.props.histories &&
           this.props.histories.map((a, i) => {
