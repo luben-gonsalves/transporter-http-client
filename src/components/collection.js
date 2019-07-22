@@ -78,6 +78,15 @@ class CollectionComponent extends React.Component {
     }
   }
 
+  exportCollection(content, fileName, contentType = "text/plain") {
+    content = JSON.stringify(content, undefined, 2);
+    var a = document.createElement("a");
+    var file = new Blob([content], { type: contentType });
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+  }
+
   render() {
     return (
       <div>
@@ -111,6 +120,18 @@ class CollectionComponent extends React.Component {
               onClick={this.removeCollection}
             >
               remove
+            </a>
+            <a
+              className="dropdown-item"
+              href="#"
+              onClick={() =>
+                this.exportCollection(
+                  this.props.collectionData,
+                  this.props.collectionData.collectionName
+                )
+              }
+            >
+              export
             </a>
           </div>
         </div>
