@@ -28,7 +28,7 @@ class HistoryDataComponent extends React.Component {
         return (
           <div>
             <button type="button" className="btn btn-sm btn-link">
-              <span> {b.method}</span> <span>{b.url.slice(0, 60)}</span>
+              <span> {b.method}</span> <span>{b.url.slice(0, 41)}</span>
             </button>
             <br />
             <br />
