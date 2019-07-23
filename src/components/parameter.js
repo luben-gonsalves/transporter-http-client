@@ -80,6 +80,8 @@ class Params extends React.Component {
             handleHeaderRemoveSpecificRow={this.props.handleHeaderRemoveSpecificRow}
             handleHeaderAddRow={this.props.handleHeaderAddRow}
             HeaderRows={this.props.HeaderRows}
+            dark={this.props.dark}
+            light={this.props.light}
             
             />
           </div>
@@ -94,7 +96,9 @@ class Params extends React.Component {
             handleBodyChange={this.props.handleBodyChange}
             handleBodyAddRow={this.props.handleBodyAddRow}
             handleBodyRemoveSpecificRow={this.props.handleBodyRemoveSpecificRow}
-            bodyRows={this.props.bodyRows} />
+            bodyRows={this.props.bodyRows} 
+            dark={this.props.dark}
+            light={this.props.light}/>
           </div>
         </div>
       </div>
