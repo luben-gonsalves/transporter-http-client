@@ -12,12 +12,10 @@ class ImportComponent extends React.Component {
 
   HandleFileRead = e => {
     const content = JSON.parse(fileReader.result);
-    for (var i = 0; i < content.length; i++) {
-      this.props.dispatch({
-        type: "CREATE_COLLECTION",
-        collectionData: content[i]
-      });
-    }
+    this.props.dispatch({
+      type: "CREATE_COLLECTION",
+      collectionData: content
+    });
   };
 
   handleFileChosesn = file => {
