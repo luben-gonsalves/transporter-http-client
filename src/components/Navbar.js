@@ -5,17 +5,16 @@ import "../../node_modules/font-awesome/css/font-awesome.min.css";
 
 class Navbar extends React.Component {
   render() {
-    console.log(this.props.dark);
     return (
       <div className="color">
         <div className="container color">
           <div className={`color ${this.props.dark ? "dark" : "light"}`}>
-            <nav className="navbar navbar-expand-sm">
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
               <a className="navbar-brand" href="#">
                 <div class="dropdown">
                   <button
                     type="button"
-                    class="input drop dropdown-toggle dropdown-toggle-split"
+                    class="input btn btn-info drop dropdown-toggle dropdown-toggle-split"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"

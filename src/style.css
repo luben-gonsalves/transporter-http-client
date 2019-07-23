@@ -22,7 +22,7 @@
 }
 
 .send {
-    background-color: rgb(228, 172, 68);
+    /* background-color: #5bc0de; */
     border: none;
     color: white;
     padding: 7px 22px;
@@ -35,7 +35,6 @@
 }
 
 
-
 .send:focus {
     box-shadow: red;
     outline-width: 1px;
@@ -43,11 +42,11 @@
 }
 
 .send:hover {
-    background-color: rgb(255, 136, 0)
+    background-color: #5bc0de
 }
 
 .ImportExport {
-    background-color: rgb(228, 172, 68);
+    background-color: #5bc0de;
     border: none;
     color: white;
     padding: 7px 22px;
@@ -67,11 +66,11 @@
 }
 
 .ImportExport:hover {
-    background-color: rgb(255, 136, 0)
+    background-color: #5bc0de
 }
 
 .Transporter {
-    background-color: rgb(0, 174, 255);
+    background-color: #5bc0de;
     border: none;
     color: white;
     padding: 7px 22px;
@@ -88,7 +87,7 @@
 }
 
 .input {
-    background-color: rgb(228, 172, 68);
+    /* background-color: rgb(69, 77, 197); */
     border: none;
     color: white;
     padding: 7px 22px;
@@ -108,7 +107,7 @@
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: black;
-    background-color: rgb(228, 172, 68);
+    background-color: #5bc0de;
 }
 
 .nav-pills .nav-link,
@@ -116,37 +115,36 @@
     color: black;
 }
 
-.btn-primary {
+/* .btn-primary {
     color: #fff;
-    background-color: rgb(228, 172, 68);
+    background-color: rgb(91,192,222)
     border-color: rgb(228, 172, 68)
-}
+} */
 
-.btn-primary:hover {
+/* .btn-primary:hover {
     color: #fff;
-    background-color: rgb(228, 172, 68);
-    border-color: rgb(228, 172, 68);
-    box-shadow: 0 0 0 0.2rem rgb(228, 172, 68);
-}
+    background-color: rgb(91,192,222)
+    border-color: rgb(91,192,222)
+    box-shadow: 0 0 0 0.2rem rgb(91,192,222)
+} */
 
 a {
     outline-color: grey;
 }
 
-a.nav-link {
+/* a.nav-link {
     outline-style: solid;
     outline-width: thin;
-}
+} */
 
 .drop {
     outline-style: solid;
     outline-width: thin;
     outline-color: black;
-
 }
 
 .dark {
-    background-color: black;
+    background-color: #212121;
 }
 
 .dark .ImportExport {
@@ -235,5 +233,12 @@ input[type="file"] {
 }
 
 .addTo {
-    border-radius: 15px;
+    border-radius: 25px;
 }
+
+/* hr {
+    height: 1px;
+    color: #123455;
+    background-color: #123455;
+    border: none;
+} */

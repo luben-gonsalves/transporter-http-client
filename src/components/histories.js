@@ -26,8 +26,10 @@ class HistoriesComponent extends React.Component {
   render() {
     return (
       <div class="text-center">
-        <h4>Histories</h4>
-        <hr />
+        <h4 className={this.props.dark ? "text-white" : "text-dark"}>
+          History
+        </h4>
+        <hr className="bg-white" />
         {this.props.histories.length > 0 && (
           <button
             type="button"
