@@ -32,21 +32,20 @@ class App extends React.Component {
     });
   }
   render() {
-    console.log(this.state.dark, this.state.light);
     return (
       <Provider store={myStore}>
         <div className={this.state.dark ? "dark" : "light"}>
           <div className={`container mode`}>
-            <p />
-            <Navbar
-              checkdark={this.checkdark}
-              checklight={this.checklight}
-              dark={this.state.dark}
-              light={this.state.light}
-            />
             <br />
             <div className="row">
               <div className="col-md-3 sideBorder">
+                <Navbar
+                  checkdark={this.checkdark}
+                  checklight={this.checklight}
+                  dark={this.state.dark}
+                  light={this.state.light}
+                />
+                <br />
                 <ul
                   class="nav nav-pills mb-3 offset-md-2"
                   id="pills-tab"
@@ -101,7 +100,7 @@ class App extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="col-md-9 rightBorder">
+              <div className="col-md-9 ">
                 <InputQuery dark={this.state.dark} light={this.state.light} />
                 <Response />
               </div>

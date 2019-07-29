@@ -62,7 +62,7 @@ class CollectionsComponent extends React.Component {
       <div class="text-center">
         <button
           type="button"
-          className="btn btn-link "
+          className="badge badge-pill "
           data-toggle="modal"
           data-target="#exampleModalLong"
         >
@@ -70,9 +70,9 @@ class CollectionsComponent extends React.Component {
             <span> new collection</span>
           </i>
         </button>
-        <span>
+        {/* <span className="ml-3">
           <Import />
-        </span>
+        </span> */}
         <hr className="bg-white" />
         <div
           className="modal fade"
@@ -124,11 +124,7 @@ class CollectionsComponent extends React.Component {
                 >
                   Close
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  onClick={this.save}
-                >
+                <button type="button" className="btn save" onClick={this.save}>
                   Save changes
                 </button>
               </div>

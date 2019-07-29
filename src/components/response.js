@@ -50,7 +50,7 @@ class ResponseComponent extends React.Component {
 
     if (!jsonPretty) {
       return (
-        <textarea cols="100" rows="10" className="text-muted mt-3" readOnly>
+        <textarea cols="90" rows="7" className="text-muted mt-3" readOnly>
           Response
         </textarea>
       );

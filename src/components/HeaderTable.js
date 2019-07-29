@@ -91,7 +91,7 @@ class HeaderTable extends React.Component {
                       </td>
                       <td>
                         <button
-                          className="btn btn-danger btn-sm"
+                          className="btn btn-sm addRow"
                           onClick={this.props.handleHeaderRemoveSpecificRow(
                             idx
                           )}
@@ -105,7 +105,7 @@ class HeaderTable extends React.Component {
             </table>
             <button
               onClick={this.props.handleHeaderAddRow}
-              className="btn btn-sm btn-success"
+              className="btn btn-sm addRow"
             >
               <i class="fa fa-plus-square" aria-hidden="true" />
             </button>

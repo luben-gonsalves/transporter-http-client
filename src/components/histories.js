@@ -26,14 +26,14 @@ class HistoriesComponent extends React.Component {
   render() {
     return (
       <div class="text-center">
-        <h4 className={this.props.dark ? "text-white" : "text-dark"}>
+        <h6 className={this.props.dark ? "text-white" : "text-dark"}>
           History
-        </h4>
+        </h6>
         <hr className="bg-white" />
         {this.props.histories.length > 0 && (
           <button
             type="button"
-            class="btn btn-link offset-md-8 "
+            class="badge offset-md-8 "
             data-toggle="modal"
             data-target="#exampleModal"
           >
@@ -78,7 +78,7 @@ class HistoriesComponent extends React.Component {
                 </button>
                 <button
                   type="button"
-                  class="btn btn-danger"
+                  class="btn save"
                   onClick={this.handleClear}
                 >
                   Save changes

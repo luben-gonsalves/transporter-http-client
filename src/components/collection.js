@@ -93,14 +93,14 @@ class CollectionComponent extends React.Component {
         <div className="btn-group pt-2">
           <button
             type="button"
-            className="btn btn-info btn-sm"
+            className="btn btn-sm collection"
             onClick={this.handleButton}
           >
             {this.props.children}
           </button>
           <button
             type="button"
-            className="btn btn-info dropdown-toggle dropdown-toggle-split"
+            className="btn btn-sm dropdown-toggle dropdown-toggle-split collection"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -185,7 +185,7 @@ class CollectionComponent extends React.Component {
                 </button>
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn save"
                   onClick={this.editCollection}
                 >
                   Save changes

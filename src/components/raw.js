@@ -13,6 +13,7 @@ class RawComponent extends React.Component {
             className=" form-control"
             id="exampleFormControlTextarea1"
             rows="7"
+            placeholder = "JSON "
             onChange={this.props.JSONbodyHandler}
           />
         </div>

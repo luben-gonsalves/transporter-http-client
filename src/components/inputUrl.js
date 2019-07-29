@@ -168,7 +168,7 @@ class InputQueryComponent extends React.Component {
             <div className="input-group-prepend">
               <div className="dropdown">
                 <button
-                  className=" input dropdown-toggle btn btn-info"
+                  className=" input dropdown-toggle btn method rounded"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
@@ -178,7 +178,7 @@ class InputQueryComponent extends React.Component {
                   {this.state.method}
                 </button>
                 <div
-                  className="dropdown-menu"
+                  className="dropdown-menu rounded"
                   aria-labelledby="dropdownMenuButton"
                 >
                   <a
@@ -222,7 +222,7 @@ class InputQueryComponent extends React.Component {
             />
             <button
               type="button"
-              className="send btn btn-info"
+              className="btn rounded send"
               onClick={this.handleSend}
             >
               SEND

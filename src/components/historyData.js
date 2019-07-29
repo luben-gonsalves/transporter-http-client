@@ -27,8 +27,8 @@ class HistoryDataComponent extends React.Component {
       return this.props.hdata.requests.map(b => {
         return (
           <div>
-            <button type="button" className="btn btn-sm btn-link">
-              <span> {b.method}</span> <span>{b.url.slice(0, 41)}</span>
+            <button type="button" className="badge badge-light">
+              <span> {b.method}</span> <span>{b.url.slice(0, 30)}</span>
             </button>
             <br />
             <br />
@@ -45,7 +45,7 @@ class HistoryDataComponent extends React.Component {
           <button
             type="button"
             onClick={this.handleButton}
-            class="btn btn-sm btn-primary"
+            className="badge badge-info history"
           >
             {this.props.hdata.historyName}
           </button>

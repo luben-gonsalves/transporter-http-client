@@ -9,7 +9,8 @@ class Params extends React.Component {
   render() {
     return (
       <div>
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <p />
+        <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
           <li class="nav-item">
             <a
               className="nav-link active"
@@ -75,14 +76,15 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-contact-tab"
           >
-            <HeaderTable 
-            handleHeaderChange={this.props.handleHeaderChange}
-            handleHeaderRemoveSpecificRow={this.props.handleHeaderRemoveSpecificRow}
-            handleHeaderAddRow={this.props.handleHeaderAddRow}
-            HeaderRows={this.props.HeaderRows}
-            dark={this.props.dark}
-            light={this.props.light}
-            
+            <HeaderTable
+              handleHeaderChange={this.props.handleHeaderChange}
+              handleHeaderRemoveSpecificRow={
+                this.props.handleHeaderRemoveSpecificRow
+              }
+              handleHeaderAddRow={this.props.handleHeaderAddRow}
+              HeaderRows={this.props.HeaderRows}
+              dark={this.props.dark}
+              light={this.props.light}
             />
           </div>
           <div
@@ -91,14 +93,17 @@ class Params extends React.Component {
             role="tabpanel"
             aria-labelledby="pills-body-tab"
           >
-            <BodyTable 
-            JSONbodyHandler={this.props.JSONbodyHandler}
-            handleBodyChange={this.props.handleBodyChange}
-            handleBodyAddRow={this.props.handleBodyAddRow}
-            handleBodyRemoveSpecificRow={this.props.handleBodyRemoveSpecificRow}
-            bodyRows={this.props.bodyRows} 
-            dark={this.props.dark}
-            light={this.props.light}/>
+            <BodyTable
+              JSONbodyHandler={this.props.JSONbodyHandler}
+              handleBodyChange={this.props.handleBodyChange}
+              handleBodyAddRow={this.props.handleBodyAddRow}
+              handleBodyRemoveSpecificRow={
+                this.props.handleBodyRemoveSpecificRow
+              }
+              bodyRows={this.props.bodyRows}
+              dark={this.props.dark}
+              light={this.props.light}
+            />
           </div>
         </div>
       </div>

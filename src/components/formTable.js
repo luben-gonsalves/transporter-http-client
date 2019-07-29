@@ -8,7 +8,7 @@ class FormComponent extends React.Component {
   render() {
     return (
       <div>
-       <div className={`row clearfix ${this.props.dark ? "dark" : "light"}`}>
+        <div className={`row clearfix ${this.props.dark ? "dark" : "light"}`}>
           <div className="col-md-12 column text-center">
             <table className="table table-bordered table-hover" id="tab_logic">
               <thead>
@@ -51,7 +51,7 @@ class FormComponent extends React.Component {
                     </td>
                     <td>
                       <button
-                        className="btn btn-danger btn-sm"
+                        className="btn btn-sm addRow"
                         onClick={this.props.handleBodyRemoveSpecificRow(idx)}
                       >
                         <i class="fa fa-trash" aria-hidden="true" />
@@ -63,7 +63,7 @@ class FormComponent extends React.Component {
             </table>
             <button
               onClick={this.props.handleBodyAddRow}
-              className="btn btn-sm btn-success"
+              className="btn btn-sm addRow"
             >
               <i class="fa fa-plus-square" aria-hidden="true" />
             </button>
