@@ -8,7 +8,7 @@ body {
 
 .sideBorder {
   border-right: 1px solid black;
-  height: 600px;
+  height: 1000px;
 }
 
 .transporter {
@@ -41,12 +41,12 @@ input[type="file"] {
 }
 
 .method {
-  background-color: #E5461E;
+  background-color: #f15025;
   color: white;
 }
 
 .addRow {
-  background-color: #E5461E;
+  background-color: #f15025;
   color: white;
 }
 
@@ -56,7 +56,7 @@ input[type="file"] {
 }
 
 .send {
-  background-color: #E5461E;
+  background-color: #f15025;
   color: white;
 }
 
@@ -90,21 +90,21 @@ input[type="file"] {
 
 .dark .btn-primary {
   color: #fff;
-  background-color: #E5461E;
-  border-color: #E5461E;
+  background-color: #f15025;
+  border-color: #f15025;
 }
 
 .dark .btn-primary:hover {
   color: #fff;
-  background-color: #E5461E;
-  border-color: #E5461E;
-  box-shadow: 0 0 0 0.2rem #E5461E;
+  background-color: #f15025;
+  border-color: #f15025;
+  box-shadow: 0 0 0 0.2rem #f15025;
 }
 
 
 
 .dark .send {
-  background-color: #E5461E;
+  background-color: #f15025;
   border: none;
   color: white;
   text-align: center;
@@ -115,11 +115,11 @@ input[type="file"] {
 }
 
 .dark .send:focus {
-  background-color: #E5461E;
+  background-color: #f15025;
 }
 
 .dark .input {
-  background-color: #E5461E;
+  background-color: #f15025;
   color: white;
   cursor: pointer;
 }
