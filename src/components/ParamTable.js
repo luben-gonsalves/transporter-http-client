@@ -51,7 +51,7 @@ class ParamTableComponent extends React.Component {
                     </td>
                     <td>
                       <button
-                        className="btn btn-danger btn-sm"
+                        className="btn btn-sm addRow"
                         onClick={this.props.handleRemoveSpecificRow(idx)}
                       >
                         <i class="fa fa-trash" aria-hidden="true" />
@@ -63,7 +63,7 @@ class ParamTableComponent extends React.Component {
             </table>
             <button
               onClick={this.props.handleAddRow}
-              className="btn btn-sm btn-success"
+              className="btn btn-sm addRow"
             >
               <i class="fa fa-plus-square" aria-hidden="true" />
             </button>

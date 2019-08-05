@@ -115,7 +115,10 @@ export function deleteRequest(myStore, id, index) {
 }
 
 export function createHistory(dataName, myStore, data) {
-  var date = moment().format("MMMM Do");
+  var date = moment()
+    .format("MMMM Do")
+    .slice(0, -2)
+    .toLocaleUpperCase();
   var localData = localStorage.getItem(dataName);
   localData = JSON.parse(localData);
   if (!localData) {
@@ -124,7 +127,7 @@ export function createHistory(dataName, myStore, data) {
   var pushed = false;
   for (var i = 0; i < localData.length; i++) {
     if (date === localData[i].historyName) {
-      localData[i].requests.push(data);
+      localData[i].requests.unshift(data);
       pushed = true;
     }
   }
@@ -134,7 +137,7 @@ export function createHistory(dataName, myStore, data) {
       historyName: date,
       requests: [data]
     };
-    localData.push(obj);
+    localData.unshift(obj);
   }
 
   localStorage.setItem(dataName, JSON.stringify(localData));

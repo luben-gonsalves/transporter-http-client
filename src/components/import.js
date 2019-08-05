@@ -33,8 +33,9 @@ class ImportComponent extends React.Component {
           //   value="Export"
           onChange={e => this.handleFileChosesn(e.target.files[0])}
         /> */}
-        <label for="file-upload" class="custom-file-upload btn-link">
-          <i class="fa fa-cloud-upload" /> Import
+        <label for="file-upload" className="custom-file-upload ">
+          <i class="fa fa-cloud-upload" /> <span />
+          Import
         </label>
         <input
           id="file-upload"

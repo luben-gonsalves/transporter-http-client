@@ -21,7 +21,7 @@ class RequestOfCollectionComponent extends React.Component {
         <div className="btn-group">
           <button
             type="button"
-            className="btn btn-light btn-sm dropdown-toggle"
+            className="badge badge-light btn btn-sm dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -29,7 +29,11 @@ class RequestOfCollectionComponent extends React.Component {
             {this.props.a.method} {this.props.a.url.slice(0, 8)}
           </button>
           <div className="dropdown-menu ">
-            <a className="dropdown-item" href="#" onClick={this.removeRequest}>
+            <a
+              className="dropdown-item badge badge-light btn btn-sm"
+              href="#"
+              onClick={this.removeRequest}
+            >
               Delete
             </a>
           </div>
